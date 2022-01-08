@@ -1,0 +1,198 @@
+/*--------------------------------------------------------------
+# Dark Mode
+--------------------------------------------------------------*/
+
+
+body {
+	--thm-gray: #8f8da0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	--thm-black: #fff;
+}
+
+.two-boxes,
+.welcome-one {
+	--thm-base: #151327;
+	--thm-black: #ffffff;
+	--thm-gray: #8f8da0;
+	--thm-light: #1a172d;
+	background-color: var(--thm-base);
+}
+
+.page-wrapper {
+	background-color: #151327;
+}
+
+.two-boxes__single {
+	background-color: var(--thm-light);
+}
+
+.cases-one {
+	--thm-gray: #8f8da0;
+	--thm-light: #1a172d;
+}
+
+.section-title__title {
+	--thm-black: #ffffff;
+}
+
+.testimonials-one {
+	background-color: #1a172d;
+}
+
+.faq-one-accrodion .accrodion-title {
+	--thm-light: #1a172d;
+	--thm-gray: #8f8da0;
+	--thm-black: #ffffff;
+	--thm-base: #0f0d1d;
+	background-color: #0f0d1d;
+}
+
+.faq-one-accrodion .accrodion.active {
+	background-color: #0f0d1d;
+	border: 1px solid #0f0d1d;
+}
+
+.cases-details__pagination-box,
+.brand-three,
+.news-details__bottom,
+.comment-one__single,
+.location__inner,
+.financial__right__list {
+	border-color: rgba(255, 255, 255, .10);
+}
+
+
+.testimonials-one__single {
+	--thm-base: #0f0d1d;
+}
+
+.testimonials-one__quote {
+	background-image: url(../../images/testimonial/testimonials-1-iocn-dark.png)
+}
+
+.financial-advice__box .tab-btns .tab-btn span {
+	background-color: #1a172d;
+	color: #fff;
+}
+
+.financial-advice__box .tab-btns .tab-btn.active-btn span,
+.financial-advice__box .tab-btns .tab-btn:hover span {
+	--thm-base: #151327;
+}
+
+.financial-advice__single-2::before,
+
+.financial-advice__icon {
+	background-color: #1a172d;
+}
+
+.contact-expert__input input[type="email"],
+.contact-expert__input input[type="text"],
+.contact-expert__input textarea,
+.services-two__single,
+.news-one__content {
+	--thm-base: #151327;
+}
+
+.cases-one__content,
+.news-one__date-box>p {
+	--thm-base: #ffffff;
+}
+
+.industries__single::before,
+.industries__icon {
+	background-color: #1a172d;
+}
+
+.listen,
+.services-two,
+.contact-expert,
+.reasons-bg,
+.services-details__services-list-box,
+.faqs-page,
+.comment-form__input-box input[type="text"],
+.comment-form__input-box input[type="email"],
+.comment-form__input-box textarea,
+.cases-details__right-list,
+.blog-single__bottom-box,
+.blog-single__delivering-services,
+.sidebar__comments,
+.sidebar__tags,
+.sidebar__post,
+.sidebar__category,
+.author-one,
+.locations__single,
+.services-one::before {
+	--thm-light: #1a172d;
+}
+
+.feature__content,
+.two-section__points,
+.brand-three,
+.services-details__services-list li.active a,
+.more-cases,
+.services-one__content {
+	--thm-base: #1a172d;
+}
+
+.two-section__points,
+.news-one__btn,
+.services-two__arrow,
+.financial__right__list li,
+.testimonial-two__text,
+.feature__btn,
+.listen__progress-box span,
+.services-details__services-list li.active a,
+.services-details__services-list li:hover a,
+.about__icon-text p,
+.about__phone-contact-text a,
+.services-details__planning-list li .text p,
+.cases-details__right-list,
+.cases-details__pagination li a,
+.news-details__tags span,
+.services-one__btn {
+	--thm-black: #ffffff;
+}
+
+.news-two::before {
+	background-color: #0f0d1d;
+	z-index: 1;
+}
+
+.news-two .container {
+	position: relative;
+	z-index: 2;
+}
+
+.cta-two-bg-overly {
+	background-color: rgba(var(--thm-black-rgb), .9);
+}
+
+
+.cta-two {
+	border-color: #0f0d1d;
+}
+
+.sidebar__post-list li:hover,
+.sidebar__category-list li a:hover,
+.sidebar__tags-list a,
+.two-boxes__count,
+.services-details__services-list li:hover a,
+.services-details__services-list li.active a {
+	background-color: #151327;
+}
+
+.sidebar__category-list li a:hover {
+	color: #fff;
+}
+
+.style-switcher {
+	background-color: #151327 !important;
+}

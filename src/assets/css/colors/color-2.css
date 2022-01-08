@@ -1,0 +1,20 @@
+:root {
+	--thm-primary: #fc3c3c;
+	--thm-primary-rgb: 252, 60, 60;
+}
+
+.main-slider-shape-1 {
+	background-image: url(../../images/colors/color-2/shapes/main-slider-shape-1.png);
+}
+
+.main-slider-shape-3 {
+	background-image: url(../../images/colors/color-2/shapes/main-slider-shape-3.png);
+}
+
+.main-slider-two-shape-2 {
+	background-image: url(../../images/colors/color-2/shapes/main-slider--two-shape-2.png);
+}
+
+.page-header-shape-1 {
+	background-image: url(../../images/colors/color-2/shapes/page-header-bg-1-1.png);
+}
