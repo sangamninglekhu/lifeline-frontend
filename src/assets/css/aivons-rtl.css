@@ -267,6 +267,7 @@
 
 .translated-rtl .contact-expert__input input[type="email"],
 .translated-rtl .contact-expert__input input[type="text"],
+.translated-rtl .contact-expert__input input[type="date"],
 .translated-rtl .contact-expert__input textarea {
 	padding-right: 30px;
 	padding-left: 50px;

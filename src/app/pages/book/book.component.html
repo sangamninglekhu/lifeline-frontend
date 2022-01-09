@@ -1,1 +1,312 @@
-<p>book works!</p>
+<!--Page Header Start-->
+<section class="page-header">
+  <div class="container">
+    <div class="page-header__inner">
+      <ul class="thm-breadcrumb list-unstyled">
+        <!-- <li><a href="index.html">Booking</a></li> -->
+        <!-- <li><span>/</span></li> -->
+        <li>Booking Form</li>
+      </ul>
+      <h2>Book Staff</h2>
+    </div>
+  </div>
+</section>
+<!--Page Header End-->
+
+<!--Message Box Start-->
+<section class="message-box">
+  <div class="container">
+
+    <div class="row">
+      <!-- <div class="col-xl-4 col-lg-5">
+      <div class="message-box__left">
+      <div class="section-title text-left">
+      <h2 class="section-title__title">get in touch with our team</h2>
+    </div>
+    <div class="message-box__social">
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="clr-fb"><i class="fab fa-facebook"></i></a>
+    <a href="#" class="clr-dri"><i class="fab fa-dribbble"></i></a>
+    <a href="#" class="clr-ins"><i class="fab fa-instagram"></i></a>
+  </div>
+</div>
+</div> -->
+<div class="col-xl-12 col-lg-12">
+  <div class="message-box__right">
+    <form class="comment-one__form contact-form-validated"
+    [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+    <!-- Personal Detail -->
+    Personal Details
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="comment-form__input-box">
+          <!-- <label for="power">Personal Details</label> -->
+
+          <input type="text" placeholder="Full Name" name="pname" formControlName="pname">
+          <div class="comment-form__icon">
+            <i class="far fa-user-circle"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Personal Detail -->
+
+
+    <!-- Organization Details -->
+    Organization Details
+    <div class="row">
+
+      <div class="col-xl-3">
+
+        <div class="comment-form__input-box">
+          <input type="text" placeholder="Oraganization name" formControlName="oname">
+          <div class="comment-form__icon">
+            <i class="far fa-building"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3">
+
+        <div class="comment-form__input-box">
+          <input type="text" placeholder="Postcode" formControlName="postcode">
+          <div class="comment-form__icon">
+            <i class="far fa-map"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3">
+
+        <div class="comment-form__input-box">
+          <input type="text" placeholder="Contact" formControlName="contact">
+          <div class="comment-form__icon">
+            <i class="far fa-envelope"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3">
+
+        <div class="comment-form__input-box">
+          <input type="email" placeholder="Email Address" formControlName="email">
+          <div class="comment-form__icon">
+            <i class="far fa-envelope"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Organization Details -->
+
+    <!-- Booking Details -->
+    <!-- End of Booking Details -->
+
+    <!-- Additional Booking Details -->
+    Booking Details
+    <div formArrayName="quantities">
+
+      <div class="row"  *ngFor="let quantity of quantities().controls; let i=index;" [formGroupName]="i">
+
+        <div class="col-xl-3">
+
+          <div class="comment-form__input-box">
+            <select formControlName="staff" >
+              <option value="" disabled selected>Select Staff Type</option>
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+
+            <!-- <input type="date" placeholder="Choose Date" name="date"> -->
+            <div class="comment-form__icon">
+              <i class="far fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3">
+
+          <div class="comment-form__input-box">
+            <input type="text" placeholder="Choose Date" formControlName="bdate">
+            <span *ngIf="getValidity(index)"> Please fill all the field.-</span>
+
+            <div class="comment-form__icon">
+              <!-- <i class="far fa-map"></i> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3">
+
+          <div class="comment-form__input-box">
+            <input type="text" placeholder="Time from" formControlName="timefrom">
+            <div class="comment-form__icon">
+              <i class="far fa-clock"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3">
+
+          <div class="comment-form__input-box">
+            <input type="text" placeholder="Time To" formControlName="timeto">
+            <div class="comment-form__icon">
+              <i class="far fa-clock"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3">
+
+          <button (click)="removeQuantity(i)" class="btn btn-danger">Remove</button>
+
+
+        </div>
+      </div>
+    </div>
+    <!-- End of Additional Booking Details -->
+
+    <!-- Add and Remove button -->
+    <div class="row">
+      <div class="col-xl-4">
+
+        <button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button>
+
+      </div>
+    </div>
+    <!-- End of Add and Remove button -->
+
+    <!-- Additional Details -->
+    Additional Details
+    <div class="row">
+
+      <div class="col-xl-4">
+        <div class="comment-form__input-box">
+          <textarea formControlName="special" placeholder="Special Requirements"></textarea>
+          <div class="comment-form__icon contact-expert__icon-comment">
+            <i class="far fa-comment"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-4">
+
+        <div class="comment-form__input-box">
+          <select formControlName="parking" id="cars">
+            <option value="" disabled selected>Select Parking Information</option>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+
+          <!-- <input type="date" placeholder="Choose Date" name="date"> -->
+          <div class="comment-form__icon">
+            <i class="far fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4">
+        <div class="comment-form__input-box">
+          <textarea formControlName="additional" placeholder="Any Other Additional Information"></textarea>
+          <div class="comment-form__icon contact-expert__icon-comment">
+            <i class="far fa-comment"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Organization Details -->
+
+    <!-- Additional Information -->
+    <div class="row">
+
+      <div class="col-xl-12">
+        <div class="comment-form__input-box" id="tnc">
+
+          <!-- <input id="tnc1"  type="checkbox" id="scales" name="scales">
+          <label id="tnc2"  for="scales"> &nbsp;&nbsp; By booking the service you agree to the Lifeline Recruitment booking Terms and Condition.</label> -->
+          <label for="checkid"  style="word-wrap:break-word">
+            <input id="checkid" class="mb-1" type="checkbox" value="test" />&nbsp; By booking the service you agree to the Lifeline Recruitment booking <a href="" target="blank_"> <b>Terms and Condition</b></a>.
+          </label>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- End of Additional Information -->
+    <!-- Additional Information -->
+    <div class="row">
+
+      <div class="col-xl-12">
+        <button type="submit" class="thm-btn comment-form__btn">Send a message</button>
+      </div>
+
+    </div>
+    <!-- End of Additional Information -->
+
+
+  </form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!--Message Box End-->
+{{this.bookForm.value | json}}
+
+
+
+<!-- <form  [formGroup]="LoginForm">
+First name:<br>
+<input type="text" formControlName="firstname" >
+<br>
+Last name:<br>
+<input type="text" formControlName="lastname"><br><br>
+<button  type="submit"  [disabled]="LoginForm.invalid">signUp</button>
+</form> -->
+
+
+
+
+
+<!-- <div class="container">
+
+<h1> Dynamically Add New Input Fields in Angular </h1>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+<label for="name">Product Name:</label>
+<input type="text" id="name" name="name" formControlName="name" class="form-control">
+<div *ngIf="submitted && f.name.errors" class=" mb-2">
+<div *ngIf="f.name.errors.required">Name is required</div>
+<div *ngIf="f2.email2.errors.pattern">Email must be valid</div>
+</div>
+
+
+<table class="table table-bordered" formArrayName="quantities">
+<tr>
+<th colspan="2">Add Multiple Quantity:</th>
+<th width="150px"><button type="button" (click)="addQuantity(childCount)" class="btn btn-primary">Add More</button></th>
+</tr>
+<tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">
+<td>
+Quantity :
+<input type="text" formControlName="qty" class="form-control" placeholder="hahaha">
+<div *ngIf="submitted && c.qty.errors" class=" mb-2">
+<div *ngIf="c.qty.errors.required">Qty is required</div>
+<div *ngIf="f2.email2.errors.pattern">Email must be valid</div>
+</div>
+
+</td>
+<td>
+Price:
+<input type="text" formControlName="price" class="form-control">
+</td>
+<td>
+<button (click)="removeQuantity(i)" class="btn btn-danger">Remove</button>
+</td>
+</tr>
+</table>
+
+<button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+
+<br/>
+{{this.productForm.value | json}}
+</div> -->

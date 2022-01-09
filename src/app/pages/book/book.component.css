@@ -1,0 +1,9 @@
+
+/* #tnc {  display: flex;
+  justify-content: space-between;
+} */
+/* #tnc1 {padding-left : 20px; float:left;} */
+[type="checkbox"]
+{
+    vertical-align:middle;
+}
