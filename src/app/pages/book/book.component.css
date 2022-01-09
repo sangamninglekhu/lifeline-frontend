@@ -7,3 +7,41 @@
 {
     vertical-align:middle;
 }
+
+.btn-danger{
+  background-color: #ff4444 ;
+}
+
+.right{
+  text-align: right;
+}
+
+.bb{
+  border-bottom: .2px solid;
+  margin:-15px auto 20px;
+  width:25%;
+  text-align:center;
+
+}
+
+.mb{
+  margin-bottom: 15px;
+}
+
+.add-btn, .rmv-btn{
+  padding:5px 10px;
+  border-radius: 5px;
+
+}
+
+@media (max-width: 1200px) {
+  .bb{
+    /* border-bottom: .2px solid;
+    margin:-15px auto 20px; */
+    width:90%;
+    /* text-align:center; */
+
+  }
+
+
+}

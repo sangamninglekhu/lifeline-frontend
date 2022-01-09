@@ -37,7 +37,7 @@
     [formGroup]="bookForm" (ngSubmit)="onSubmit()">
 
     <!-- Personal Detail -->
-    Personal Details
+    Personal Details*
     <div class="row">
       <div class="col-xl-6">
         <div class="comment-form__input-box">
@@ -54,7 +54,7 @@
 
 
     <!-- Organization Details -->
-    Organization Details
+    Organization Details*
     <div class="row">
 
       <div class="col-xl-3">
@@ -99,8 +99,9 @@
     <!-- Booking Details -->
     <!-- End of Booking Details -->
 
-    <!-- Additional Booking Details -->
-    Booking Details
+
+    <!-- Booking Details -->
+    Booking Details*
     <div formArrayName="quantities">
 
       <div class="row"  *ngFor="let quantity of quantities().controls; let i=index;" [formGroupName]="i">
@@ -114,26 +115,27 @@
               <option value="saab">Saab</option>
               <option value="mercedes">Mercedes</option>
               <option value="audi">Audi</option>
-            </select>
 
             <!-- <input type="date" placeholder="Choose Date" name="date"> -->
             <div class="comment-form__icon">
               <i class="far fa-chevron-down"></i>
             </div>
+          </select>
+
           </div>
         </div>
         <div class="col-xl-3">
 
           <div class="comment-form__input-box">
-            <input type="text" placeholder="Choose Date" formControlName="bdate">
-            <span *ngIf="getValidity(index)"> Please fill all the field.-</span>
+            <input type="date" placeholder="Choose Date" formControlName="bdate">
 
             <div class="comment-form__icon">
               <!-- <i class="far fa-map"></i> -->
             </div>
           </div>
+
         </div>
-        <div class="col-xl-3">
+        <div class="col-xl-2">
 
           <div class="comment-form__input-box">
             <input type="text" placeholder="Time from" formControlName="timefrom">
@@ -142,7 +144,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3">
+        <div class="col-xl-2">
 
           <div class="comment-form__input-box">
             <input type="text" placeholder="Time To" formControlName="timeto">
@@ -151,21 +153,22 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3">
-
-          <button (click)="removeQuantity(i)" class="btn btn-danger">Remove</button>
-
-
+        <div class="col-xl-2">
+          <button (click)="removeQuantity(i)" *ngIf="test(i)" class="thm-btn btn-danger">Remove</button>
         </div>
+        <div class="row bb">
+          <span class="text-danger" *ngIf="getValidity(i)">Please fill up all the fields.</span>
+        </div>
+
       </div>
     </div>
-    <!-- End of Additional Booking Details -->
+    <!-- End of Booking Details -->
 
     <!-- Add and Remove button -->
-    <div class="row">
+    <div class="row mb">
       <div class="col-xl-4">
 
-        <button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button>
+        <button type="button" (click)="addQuantity()" class="thm-btn btn-primary add-btn">Add More</button>
 
       </div>
     </div>
@@ -220,9 +223,9 @@
 
           <!-- <input id="tnc1"  type="checkbox" id="scales" name="scales">
           <label id="tnc2"  for="scales"> &nbsp;&nbsp; By booking the service you agree to the Lifeline Recruitment booking Terms and Condition.</label> -->
-          <label for="checkid"  style="word-wrap:break-word">
-            <input id="checkid" class="mb-1" type="checkbox" value="test" />&nbsp; By booking the service you agree to the Lifeline Recruitment booking <a href="" target="blank_"> <b>Terms and Condition</b></a>.
-          </label>
+          <!-- <label for="checkid"   style="word-wrap:break-word"> -->
+            <input type="checkbox" id="checkid"  class="mb-1" type="checkbox" value="test" />&nbsp; By booking the service you agree to the Lifeline Recruitment booking <a href="" target="blank_"> <b>Terms and Condition</b></a>.
+          <!-- </label> -->
 
         </div>
       </div>
@@ -232,8 +235,11 @@
     <!-- Additional Information -->
     <div class="row">
 
-      <div class="col-xl-12">
-        <button type="submit" class="thm-btn comment-form__btn">Send a message</button>
+      <div class="col-xl-2">
+        <button [disabled]="!checked" type="submit" class="thm-btn comment-form__btn">Submit</button>
+      </div>
+      <div class="col-xl-4">
+        <button (click)="clear()" class="thm-btn comment-form__btn">Reset Form</button>
       </div>
 
     </div>
@@ -247,7 +253,7 @@
 </div>
 </section>
 <!--Message Box End-->
-{{this.bookForm.value | json}}
+<!-- {{this.bookForm.value | json}} -->
 
 
 
