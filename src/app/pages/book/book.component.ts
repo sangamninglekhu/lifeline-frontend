@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 export class BookComponent implements OnInit {
   bookForm: FormGroup;
   checked: boolean = false;
-
+defaultState;
   // LoginForm: FormGroup;
   // productForm: FormGroup;
   // childForm0: FormGroup;
@@ -55,9 +55,10 @@ export class BookComponent implements OnInit {
         })
       ]) ,
       special: [value && value.special || '', Validators.required],
-      parking: [value && value.parking || '', Validators.required],
+      parking: ['', Validators.required],
       additional: [value && value.additional || '', Validators.required],
     });
+    this.defaultState = this.bookForm.value;
 
   this.bookForm.valueChanges.subscribe(value => {
     localStorage.setItem('formValue', JSON.stringify(this.bookForm.value));
@@ -97,7 +98,13 @@ test(i){
 
 // Reset form
 clear(){
-  this.bookForm.reset();
+  this.bookForm.reset(
+    this.defaultState
+  );
+  this.bookForm.reset({
+        quantities: this.bookForm.get('quantities').value,
+        parking: this.bookForm.get('parking').value
+    });
 }
 
 onSubmit() {
