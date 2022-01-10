@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms'
 import { Subscription } from 'rxjs';
 
@@ -17,7 +17,10 @@ defaultState;
   // childForm1: FormGroup;
   // childForm2: FormGroup;
   submitted = false;
-  constructor(private fb:FormBuilder) {
+  constructor(
+    private fb:FormBuilder,
+    private elementRef: ElementRef,
+) {
     // 1 - Get the values from local storage
     const value = JSON.parse(localStorage.getItem('formValue'));
     // 2 - Create the form with the values
@@ -135,6 +138,10 @@ getValidity(i) {
 get b() { return this.bookForm.controls; }
 
 ngOnInit() {
+  var s = document.createElement("script");
+  s.src = "../../assets/js/aivons.js";
+  this.elementRef.nativeElement.appendChild(s);
+
 }
 
 }
