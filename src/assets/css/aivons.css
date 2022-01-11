@@ -1485,6 +1485,7 @@ body.boxed-wrapper {
 
 .search-popup__content form input[type="search"],
 .search-popup__content form input[type="date"],
+.search-popup__content form input[type="time"],
 .search-popup__content form input[type="text"] {
     width: 100%;
     background-color: var(--thm-base);
@@ -7348,6 +7349,7 @@ body.boxed-wrapper {
 
 .comment-form__input-box input[type="text"],
 .comment-form__input-box input[type="email"],
+.comment-form__input-box input[type="time"],
 .comment-form__input-box input[type="date"] {
     height: 70px;
     width: 100%;

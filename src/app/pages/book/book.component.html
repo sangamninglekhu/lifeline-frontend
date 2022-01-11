@@ -102,9 +102,9 @@
 
     <!-- Booking Details -->
     Booking Details*
-    <div formArrayName="quantities">
+    <div formArrayName="staffs">
 
-      <div class="row"  *ngFor="let quantity of quantities().controls; let i=index;" [formGroupName]="i">
+      <div class="row"  *ngFor="let quantity of staffs().controls; let i=index;" [formGroupName]="i">
 
         <div class="col-xl-3">
 
@@ -138,7 +138,7 @@
         <div class="col-xl-2">
 
           <div class="comment-form__input-box">
-            <input type="text" placeholder="Time from" formControlName="timefrom">
+            <input type="time" placeholder="Time from" formControlName="timefrom">
             <div class="comment-form__icon">
               <i class="far fa-clock"></i>
             </div>
@@ -147,7 +147,7 @@
         <div class="col-xl-2">
 
           <div class="comment-form__input-box">
-            <input type="text" placeholder="Time To" formControlName="timeto">
+            <input type="time" placeholder="Time To" formControlName="timeto">
             <div class="comment-form__icon">
               <i class="far fa-clock"></i>
             </div>
@@ -236,7 +236,7 @@
     <div class="row">
 
       <div class="col-xl-2">
-        <button [disabled]="!checked" type="submit" class="thm-btn comment-form__btn">Submit</button>
+        <button type="submit" class="thm-btn comment-form__btn">Submit</button>
       </div>
       <div class="col-xl-4">
         <button (click)="clear()" class="thm-btn comment-form__btn">Reset Form</button>
