@@ -9,11 +9,13 @@ import {BookingService } from '@app/services';
 })
 export class BookComponent implements OnInit {
   bookForm: FormGroup;
+  bookForm2: FormGroup;
   checked: boolean = false;
   defaultState;
   bookingSuccess: boolean=false;
   loading:boolean=false;
   error: string;
+
   // LoginForm: FormGroup;
   // productForm: FormGroup;
   // childForm0: FormGroup;
@@ -48,22 +50,22 @@ export class BookComponent implements OnInit {
 
 
     this.bookForm = this.fb.group({
-      pname: [value && value.pname || '', Validators.required],
-      oname: [value && value.oname || '', Validators.required],
+      full_name: [value && value.pname || '', Validators.required],
+      company_name: [value && value.oname || '', Validators.required],
       postcode: [value && value.postcode || '', Validators.required],
       contact: [value && value.contact || '', Validators.required],
       email: [value && value.email || '', Validators.required],
       staffs: this.fb.array([
         this.fb.group({
           staff: ['', Validators.required],
-          bdate: ['', Validators.required],
-          timefrom: ['', Validators.required],
-          timeto: ['', Validators.required]
+          date: ['', Validators.required],
+          from: ['', Validators.required],
+          to: ['', Validators.required]
         })
       ]) ,
-      special: [value && value.special || ''],
-      parking: ['', Validators.required],
-      additional: [value && value.additional || ''],
+      special_requirement: [value && value.special || ''],
+      parking_id: ['', Validators.required],
+      other: [value && value.additional || ''],
     });
     this.defaultState = this.bookForm.value;
 
@@ -79,9 +81,9 @@ export class BookComponent implements OnInit {
   newQuantity(): FormGroup {
     return this.fb.group({
       staff: ['', Validators.required],
-      bdate: ['', Validators.required],
-      timefrom: ['', Validators.required],
-      timeto: ['', Validators.required],
+      date: ['', Validators.required],
+      from: ['', Validators.required],
+      to: ['', Validators.required],
     });
   }
 
@@ -115,7 +117,11 @@ export class BookComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("failed");
+
+
+    console.log("after ", this.bookForm.value);
+    console.log("data2", this.bookForm2);
+
 
     // console.log((<FormArray>this.bookForm.get('staffs')).controls[0]);
     // return;
@@ -140,8 +146,6 @@ export class BookComponent implements OnInit {
     // }
 
     //register user
-    console.log("passed");
-    console.log(this.bookForm.value);
     // return;
     this.bookingService.addBooking(this.bookForm.value)
     .subscribe(

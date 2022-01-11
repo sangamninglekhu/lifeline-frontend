@@ -43,7 +43,7 @@
         <div class="comment-form__input-box">
           <!-- <label for="power">Personal Details</label> -->
 
-          <input type="text" placeholder="Full Name" name="pname" formControlName="pname">
+          <input type="text" placeholder="Full Name" name="pname" formControlName="full_name">
           <div class="comment-form__icon">
             <i class="far fa-user-circle"></i>
           </div>
@@ -60,7 +60,7 @@
       <div class="col-xl-3">
 
         <div class="comment-form__input-box">
-          <input type="text" placeholder="Oraganization name" formControlName="oname">
+          <input type="text" placeholder="Oraganization name" formControlName="company_name">
           <div class="comment-form__icon">
             <i class="far fa-building"></i>
           </div>
@@ -111,10 +111,10 @@
           <div class="comment-form__input-box">
             <select formControlName="staff" >
               <option value="" hidden disabled selected>Select Staff Type</option>
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
+              <option value="1">Volvo</option>
+              <option value="2">Saab</option>
+              <option value="3">Mercedes</option>
+              <option value="4">Audi</option>
 
             <!-- <input type="date" placeholder="Choose Date" name="date"> -->
             <div class="comment-form__icon">
@@ -127,7 +127,7 @@
         <div class="col-xl-3">
 
           <div class="comment-form__input-box">
-            <input type="date" placeholder="Choose Date" formControlName="bdate">
+            <input type="date" placeholder="Choose Date" formControlName="date">
 
             <div class="comment-form__icon">
               <!-- <i class="far fa-map"></i> -->
@@ -138,7 +138,7 @@
         <div class="col-xl-2">
 
           <div class="comment-form__input-box">
-            <input type="time" placeholder="Time from" formControlName="timefrom">
+            <input type="time" placeholder="Time from" formControlName="from">
             <div class="comment-form__icon">
               <i class="far fa-clock"></i>
             </div>
@@ -147,7 +147,7 @@
         <div class="col-xl-2">
 
           <div class="comment-form__input-box">
-            <input type="time" placeholder="Time To" formControlName="timeto">
+            <input type="time" placeholder="Time To" formControlName="to">
             <div class="comment-form__icon">
               <i class="far fa-clock"></i>
             </div>
@@ -180,7 +180,7 @@
 
       <div class="col-xl-4">
         <div class="comment-form__input-box">
-          <textarea formControlName="special" placeholder="Special Requirements"></textarea>
+          <textarea formControlName="special_requirement" placeholder="Special Requirements"></textarea>
           <div class="comment-form__icon contact-expert__icon-comment">
             <i class="far fa-comment"></i>
           </div>
@@ -190,12 +190,12 @@
       <div class="col-xl-4">
 
         <div class="comment-form__input-box">
-          <select formControlName="parking">
+          <select formControlName="parking_id">
             <option value="" hidden disabled selected>Select Parking Information</option>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            <option value="1">Volvo</option>
+            <option value="2">Saab</option>
+            <option value="3">Mercedes</option>
+            <option value="4">Audi</option>
           </select>
 
           <!-- <input type="date" placeholder="Choose Date" name="date"> -->
@@ -206,7 +206,7 @@
       </div>
       <div class="col-xl-4">
         <div class="comment-form__input-box">
-          <textarea formControlName="additional" placeholder="Any Other Additional Information"></textarea>
+          <textarea formControlName="other" placeholder="Any Other Additional Information"></textarea>
           <div class="comment-form__icon contact-expert__icon-comment">
             <i class="far fa-comment"></i>
           </div>

@@ -1,3 +1,5 @@
+import {Parking} from './Parking';
+
 export class Booking {
   id: number;
   full_name: string;
@@ -6,7 +8,7 @@ export class Booking {
   contact: string;
   email: string;
   special_requirement: string;
-  parking_id: number;
+  parking_id: Parking;
   other: string;
   status: number;
   deleted_at: Date;
