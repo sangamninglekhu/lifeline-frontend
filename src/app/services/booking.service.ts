@@ -18,11 +18,14 @@ export class BookingService {
 
   // Reegister employee
   addBooking(booking) {
+    console.log("printing: ",booking.staffs, booking.staffs.length);
+    // return;
     const l1 =[];
     const l2 =[];
     const l3 =[];
     const l4 =[];
     for (var val of booking.staffs) {
+      console.log("printing second: ",val, val.staff, val.date);
       l1.push(val.staff);
       l2.push(val.date);
       l3.push(val.from);
