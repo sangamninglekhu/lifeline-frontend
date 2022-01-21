@@ -33,7 +33,10 @@
 </div> -->
 <div class="col-xl-12 col-lg-12">
   <div class="message-box__right">
-    <form class="comment-one__form contact-form-validated"
+  <div *ngIf="bookingSuccess">
+    Booking recorded successful
+    </div>
+    <form *ngIf="!bookingSuccess" class="comment-one__form contact-form-validated"
     [formGroup]="bookForm" (ngSubmit)="onSubmit()">
 
     <!-- Personal Detail -->
@@ -43,7 +46,7 @@
         <div class="comment-form__input-box">
           <!-- <label for="power">Personal Details</label> -->
 
-          <input type="text" placeholder="Full Name" name="pname" formControlName="full_name">
+          <input type="text" placeholder="Full Name" name="full_name" formControlName="full_name">
           <div class="comment-form__icon">
             <i class="far fa-user-circle"></i>
           </div>
@@ -60,7 +63,7 @@
       <div class="col-xl-3">
 
         <div class="comment-form__input-box">
-          <input type="text" placeholder="Oraganization name" formControlName="company_name">
+          <input type="text" placeholder="Oraganization name" name="company_name" formControlName="company_name">
           <div class="comment-form__icon">
             <i class="far fa-building"></i>
           </div>
@@ -109,7 +112,7 @@
         <div class="col-xl-3">
 
           <div class="comment-form__input-box">
-            <select formControlName="staff" >
+            <select formControlName="staff_id" >
               <option value="" hidden disabled selected>Select Staff Type</option>
               <option value="1">Volvo</option>
               <option value="2">Saab</option>

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Booking_info } from '@app/models';
+import { Observable } from 'rxjs';
+
 // import { OktaAuthService } from '@okta/okta-angular';
 // import { Product } from './product';
 
@@ -25,13 +27,13 @@ export class BookingService {
     const l3 =[];
     const l4 =[];
     for (var val of booking.staffs) {
-      console.log("printing second: ",val, val.staff, val.date);
-      l1.push(val.staff);
+      console.log("printing second: ",val, val.staff_id, val.date);
+      l1.push(val.staff_id);
       l2.push(val.date);
       l3.push(val.from);
       l4.push(val.to);
     }
-    booking['staff']=l1;
+    booking['staff_id']=l1;
     booking['date']=l2;
     booking['from']=l3;
     booking['to']=l4;
@@ -49,7 +51,7 @@ export class BookingService {
     console.log('hi1!!!!! ', booking);
     ;
 
-    return this.http.post(`${baseUrl}/bookStaff`, booking);
+    return this.http.post(`${baseUrl}/bookStaff`, booking, { responseType: 'text' });
   }
 
 

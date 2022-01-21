@@ -38,30 +38,48 @@
             </div>
             <div class="col-xl-8 col-lg-7">
                 <div class="message-box__right">
-                    <form action="assets/inc/sendemail.php" class="comment-one__form contact-form-validated"
-                        novalidate="novalidate">
+                    <form *ngIf="!bookingSuccess" class="comment-one__form "
+                        [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Your name" name="name">
+                                    <input type="text" placeholder="Your name*" name="full_name">
                                     <div class="comment-form__icon">
                                         <i class="far fa-user-circle"></i>
+                                    </div>
+                                    <div *ngIf="submitted && c.full_name.errors" class=" mb-2">
+                                      <div *ngIf="c.full_name.errors.required">Name is required</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="comment-form__input-box">
-                                    <input type="email" placeholder="Email Address" name="email">
+                                    <input type="email" placeholder="Email Address*" name="email">
                                     <div class="comment-form__icon">
                                         <i class="far fa-envelope"></i>
                                     </div>
+                                    <div *ngIf="submitted && c.full_name.errors" class=" mb-2">
+                                      <div *ngIf="c.email.errors.required">Email is required</div>
+                                      <div *ngIf="c.email.errors.pattern">Email must be valid</div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12">
+                              <div class="comment-form__input-box">
+                                  <input type="text" placeholder="Subject*" name="subject">
+                                  <div class="comment-form__icon">
+                                      <i class="far fa-sticky-note"></i>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
                                 <div class="comment-form__input-box">
-                                    <textarea name="message" placeholder="Write Message"></textarea>
+                                    <textarea name="message" placeholder="Write Message*"></textarea>
                                     <div class="comment-form__icon contact-expert__icon-comment">
                                         <i class="far fa-comment"></i>
                                     </div>
