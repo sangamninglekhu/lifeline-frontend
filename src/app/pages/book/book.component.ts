@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms'
 import { Subscription } from 'rxjs';
-import {BookingService } from '@app/services';
+import { BookingService } from '@app/services';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',

@@ -18,4 +18,10 @@ export class ContactService {
     private http: HttpClient) {
   }
 
+  // Send message
+  sendMessage(message) {
+    console.log("printing message: ", message);
+    return this.http.post(`${baseUrl}/contactUs`, message, { responseType: 'text' });
+  }
+
 }

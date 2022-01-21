@@ -1,7 +1,6 @@
 export class Staff{
-  id: number;
-  type: string;
-  deleted_at: Date;
-  created_at: Date;
-  upDated_at: Date;
+  date: Date;
+  from: Date;
+  to: Date;
+  staff: string;
 }

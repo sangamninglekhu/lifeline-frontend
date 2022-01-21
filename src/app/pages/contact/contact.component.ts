@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms'
 import { Subscription } from 'rxjs';
 import { ContactService } from '@app/services';
-
+import { Vacancy } from '@app/models';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -14,12 +14,10 @@ export class ContactComponent implements OnInit {
   contactForm2: FormGroup;
   checked: boolean = false;
   defaultState;
-  bookingSuccess: boolean=false;
-  loading:boolean=false;
+  contactSuccess: boolean = false;
+  loading: boolean = false;
   error: string;
   submitted = false;
-
-
 
   constructor(
     private fb:FormBuilder,
@@ -59,7 +57,6 @@ export class ContactComponent implements OnInit {
 
 
     console.log("contactForm: ", this.contactForm.value);
-    console.log("contactForm2: ", this.contactForm2);
 
 
     // console.log((<FormArray>this.bookForm.get('staffs')).controls[0]);
@@ -74,18 +71,21 @@ export class ContactComponent implements OnInit {
       return;
     }
 
-    // if (this.childForm1.invalid) {
-    //   console.log("passed");
-    // }
-    // if (this.childForm2.invalid) {
-    //   console.log("passed");
-    // }
-    // if (this.bookForm.invalid) {
-    //   return;
-    // }
+    this.contactService.sendMessage(this.contactForm.value)
+    .subscribe(
+      data => {
+        this.contactSuccess = true;
+        this.loading = false;
+        console.log("success: ",data);
 
-    //register user
-    // return;
+      },
+      error => {
+        this.contactSuccess = false;
+        this.loading = false;
+        this.error = error.error.message;
+        console.log("error: ",error.message,error);
+      });
+
   }
   get c() { return this.contactForm.controls; }
 

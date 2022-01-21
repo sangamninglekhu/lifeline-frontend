@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Booking_info } from '@app/models';
+import { Vacancy } from '@app/models';
 import { Observable } from 'rxjs';
 
 // import { OktaAuthService } from '@okta/okta-angular';
@@ -16,6 +16,15 @@ export class CareerService {
   constructor(
     // public oktaAuth: OktaAuthService,
     private http: HttpClient) {
+  }
+
+  // Get all the open vacancies
+  getVancancy() : Observable<Vacancy[]> {
+    // return Observable.create(observer => {
+    //        this.http.get(`${baseUrl}/careerOpportunities`).map(response => response.json();
+    //    })
+    return this.http.get<Vacancy[]>(`${baseUrl}/careerOpportunities`);
+
   }
 
 }
