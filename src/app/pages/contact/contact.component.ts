@@ -31,7 +31,7 @@ export class ContactComponent implements OnInit {
       full_name: [value && value.full_name || '', Validators.required],
       email: [value && value.email || '', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"), Validators.maxLength(100)]],
       subject: [value && value.subject || '', Validators.required],
-      message: [value && value.message || '', Validators.required]
+      contact_message: [value && value.contact_message || '', Validators.required]
     });
 
     // Get the laast state of the contact form
@@ -71,13 +71,11 @@ export class ContactComponent implements OnInit {
       return;
     }
 
-    this.contactService.sendMessage(this.contactForm.value)
-    .subscribe(
+    this.contactService.sendMessage(this.contactForm.value).subscribe(
       data => {
         this.contactSuccess = true;
         this.loading = false;
         console.log("success: ",data);
-
       },
       error => {
         this.contactSuccess = false;

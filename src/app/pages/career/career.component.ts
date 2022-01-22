@@ -25,10 +25,11 @@ export class CareerComponent implements OnInit {
       error => {
         console.log("error: ",error.message,error);
       }));
-    //loading all the necessary js files
+
 
     console.log(this.allVacancy);
 
+    //loading all the necessary js files
     var s = document.createElement("script");
     s.src = "../../assets/js/aivons.js";
     this.elementRef.nativeElement.appendChild(s);

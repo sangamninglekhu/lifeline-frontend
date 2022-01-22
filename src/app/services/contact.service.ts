@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { Booking_info } from '@app/models';
 import { Observable } from 'rxjs';
 
@@ -16,12 +17,17 @@ export class ContactService {
   constructor(
     // public oktaAuth: OktaAuthService,
     private http: HttpClient) {
-  }
+    }
 
-  // Send message
-  sendMessage(message) {
-    console.log("printing message: ", message);
-    return this.http.post(`${baseUrl}/contactUs`, message, { responseType: 'text' });
-  }
+    // Send message
+    sendMessage(contact_message) {
+      // let headers = new HttpHeaders({
+      //     'Content-Type': 'application/json'
+      //      });
+      // let options = { headers: headers };
 
-}
+      console.log("printing message: ", contact_message);
+      return this.http.post(`${baseUrl}/contactUs`, contact_message);
+    }
+
+  }

@@ -5,6 +5,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { CareerComponent } from './pages/career/career.component';
 import { AboutComponent } from './pages/about/about.component';
 import { BookComponent } from './pages/book/book.component';
+import { JobapplyComponent } from './pages/jobapply/jobapply.component';
 
 
 const routes: Routes = [
@@ -24,10 +25,13 @@ const routes: Routes = [
     path: 'book',
     component: BookComponent
   },
-
   {
     path: 'career',
     component: CareerComponent
+  },
+  {
+    path: 'applyJob',
+    component: JobapplyComponent
   },
   {
     path: 'contact',
