@@ -9,9 +9,7 @@
     <div class="container">
         <div class="page-header__inner">
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
-                <li><span>/</span></li>
-                <li>About</li>
+                <li>Work with us</li>
             </ul>
             <h2>Career</h2>
         </div>
@@ -35,19 +33,18 @@
                     </div> -->
                     <div class="news-one__content">
                         <ul class="list-unstyled news-one__meta">
-                            <li><a href="#"><i class="far fa-user-circle"></i> by {{hero.slug}}</a></li>
+                            <li><a href="#"><i class="far fa-user-circle"></i> {{hero.position}}</a></li>
                             <li><span>/</span></li>
-                            <li><a href="#"><i class="far fa-comments"></i> 2 Comments</a>
+                            <li> {{hero.number}} <span *ngIf="hero.number>1">positions</span><span *ngIf="!hero.number==1">position</span>
                             </li>
                         </ul>
                         <h3 class="news-one__title">
-                            <a href="blog-details.html">business advice for growth</a>
+                            <a (click)="onClick(hero.slug);">{{hero.position}}</a>
                         </h3>
-                        <p class="news-one__text">Aellentesque porttitor lacus quis enim varius sed efficitur
-                            turpis gilla sed sit amet.</p>
-                        <a href="blog-details.html" class="news-one__btn">Read More</a>
+                        <p class="news-one__text">{{hero.requirements}}</p>
+                        <a (click)="onClick(hero.slug);" class="news-one__btn">Apply</a>
                         <div class="news-one__date-box">
-                            <p>26 mar</p>
+                            <p>{{hero.created_at| date}}</p>
                         </div>
                     </div>
                 </div>

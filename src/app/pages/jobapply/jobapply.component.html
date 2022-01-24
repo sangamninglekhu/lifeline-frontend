@@ -75,7 +75,7 @@
                 <div class="comment-form__icon">
                   <i class="far fa-envelope"></i>
                 </div>
-                <div *ngIf="submitted && c.full_name.errors" class="mb-2 text-danger">
+                <div *ngIf="submitted && c.email.errors" class="mb-2 text-danger">
                   <div *ngIf="c.email.errors.required">Email is required</div>
                   <div *ngIf="c.email.errors.pattern">Email must be valid</div>
                 </div>
@@ -108,7 +108,6 @@
             <!-- Do you drive? -->
             <div class="col-xl-6">
               <div class="comment-form__input-box">
-                <label for="drive">Do you drive?</label><br>
                 <select formControlName="drive" name="drive">
                   <option value="" hidden disabled selected>Do you drive?</option>
                   <option value="1">Yes</option>
@@ -128,13 +127,10 @@
             <div class="col-xl-6">
 
               <div class="comment-form__input-box">
-                <label for="access_to_car">Do you have access to a car?</label><br>
-
                 <select formControlName="access_to_car" name="access_to_car">
                   <option value="" hidden disabled selected>Do you have access to a car?</option>
                   <option value="1">Yes</option>
                   <option value="2">No</option>
-                  <!-- <input type="date" placeholder="Choose Date" name="date"> -->
                   <div class="comment-form__icon">
                     <i class="far fa-chevron-down"></i>
                   </div>
@@ -157,9 +153,8 @@
             <!-- Days per week -->
             <div class="col-xl-6">
               <div class="comment-form__input-box">
-                <label for="no_of_days">No. of days available per week?</label><br>
                 <select formControlName="no_of_days" name="no_of_days">
-                  <option value="" hidden disabled selected> </option>
+                  <option value="" hidden disabled selected> No. of days per week</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -182,8 +177,6 @@
             <div class="col-xl-6">
 
               <div class="comment-form__input-box">
-                <label for="cv">Upload you CV</label><br>
-
                 <input type="file"  placeholder="CV" formControlName="cv" name="cv" class="custom-file-input"
                 accept="application/msword, application/pdf"
                 (change)="handleFileInput($event.target.files)">
@@ -219,7 +212,7 @@
               <button type="submit" class="thm-btn comment-form__btn">Submit</button>
             </div>
             <div class="col-xl-4">
-              <button (click)="clear()" class="thm-btn comment-form__btn">Reset Form</button>
+              <span (click)="clear()" class="thm-btn comment-form__btn">Reset Form</span>
             </div>
           </div>
           <!-- End of button row -->

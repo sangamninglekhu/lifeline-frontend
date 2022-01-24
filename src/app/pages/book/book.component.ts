@@ -52,7 +52,7 @@ export class BookComponent implements OnInit {
     this.bookForm = this.fb.group({
       full_name: [value && value.full_name || '', Validators.required],
       company_name: [value && value.company_name || '', Validators.required],
-      postcode: [value && value.postcode || '', Validators.required],
+      postcode: [value && value.postcode || '', [Validators.required, Validators.pattern("([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})")]],
       contact: [value && value.contact || '', Validators.required],
       email: [value && value.email || '', Validators.required],
       staffs: this.fb.array([
@@ -67,7 +67,9 @@ export class BookComponent implements OnInit {
       parking_id: ['', Validators.required],
       other: [value && value.other || ''],
     });
-    this.defaultState = this.bookForm.value;
+    this.defaultState = this.fb.group({
+      full_name: [value && value.full_name || '', Validators.required]
+    });
 
     this.bookForm.valueChanges.subscribe(value => {
       localStorage.setItem('bookingFormValue', JSON.stringify(this.bookForm.value));
@@ -107,12 +109,13 @@ export class BookComponent implements OnInit {
 
   // Reset form
   clear(){
-    this.bookForm.reset(
-      this.defaultState
-    );
+    // this.bookForm.controls['full_name'].reset()
+    // this.bookForm.reset(
+    //   this.defaultState
+    // );
     this.bookForm.reset({
-      staffs: this.bookForm.get('staffs').value,
-      parking: this.bookForm.get('parking').value
+        staff_id : "",
+        parking_id: ""
     });
   }
 
@@ -168,7 +171,7 @@ export class BookComponent implements OnInit {
       return (<FormArray>this.bookForm.get('staffs')).controls[i].invalid;
     }
 
-    get b() { return this.bookForm.controls; }
+    get c() { return this.bookForm.controls; }
 
     ngOnInit() {
       var s = document.createElement("script");

@@ -8,9 +8,7 @@
     <div class="container">
         <div class="page-header__inner">
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
-                <li><span>/</span></li>
-                <li>Contact</li>
+                <li>Keep in touch</li>
             </ul>
             <h2>Contact</h2>
         </div>
@@ -29,10 +27,8 @@
                         <!-- <span class="section-title__tagline">Trusted by more than 4,200 customers</span> -->
                     </div>
                     <div class="message-box__social">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="clr-fb"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="clr-dri"><i class="fab fa-dribbble"></i></a>
-                        <a href="#" class="clr-ins"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/lifeline-recruitment" class="clr-dri" target="blank_"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/lifelinerecuitment21/" class="clr-ins" target="blank_"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -47,8 +43,8 @@
                                     <div class="comment-form__icon">
                                         <i class="far fa-user-circle"></i>
                                     </div>
-                                    <div *ngIf="submitted && c.full_name.errors" class=" mb-2">
-                                      <div *ngIf="c.full_name.errors.required">Name is required</div>
+                                    <div *ngIf="submitted && c.full_name.errors" class=" mb-2 text-danger">
+                                      <div *ngIf="c.full_name.errors.required">Full name is required</div>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +54,7 @@
                                     <div class="comment-form__icon">
                                         <i class="far fa-envelope"></i>
                                     </div>
-                                    <div *ngIf="submitted && c.full_name.errors" class=" mb-2">
+                                    <div *ngIf="submitted && c.full_name.errors" class=" mb-2 text-danger">
                                       <div *ngIf="c.email.errors.required">Email is required</div>
                                       <div *ngIf="c.email.errors.pattern">Email must be valid</div>
                                     </div>
@@ -73,6 +69,10 @@
                                   <div class="comment-form__icon">
                                       <i class="far fa-sticky-note"></i>
                                   </div>
+                                  <div *ngIf="submitted && c.subject.errors" class=" mb-2 text-danger">
+                                    <div *ngIf="c.subject.errors.required">Subject is required</div>
+                                  </div>
+
                               </div>
                             </div>
                         </div>
@@ -83,6 +83,10 @@
                                     <div class="comment-form__icon contact-expert__icon-comment">
                                         <i class="far fa-comment"></i>
                                     </div>
+                                    <div *ngIf="submitted && c.contact_message.errors" class=" mb-2 text-danger">
+                                      <div *ngIf="c.contact_message.errors.required">Message is required</div>
+                                    </div>
+
                                 </div>
                                 <button type="submit" class="thm-btn comment-form__btn">Send a message</button>
                             </div>

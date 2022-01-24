@@ -1,0 +1,9 @@
+.main-menu-wrapper__logo img{
+  height: 85px;
+}
+
+@media (max-width: 767px) {
+  .main-menu-wrapper__logo img{
+    height: 70px;
+  }
+}

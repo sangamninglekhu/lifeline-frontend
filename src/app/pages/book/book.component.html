@@ -5,7 +5,7 @@
       <ul class="thm-breadcrumb list-unstyled">
         <!-- <li><a href="index.html">Booking</a></li> -->
         <!-- <li><span>/</span></li> -->
-        <li>Booking Form</li>
+        <li>Your request our responsibility</li>
       </ul>
       <h2>Book Staff</h2>
     </div>
@@ -40,7 +40,7 @@
     [formGroup]="bookForm" (ngSubmit)="onSubmit()">
 
     <!-- Personal Detail -->
-    Personal Details*
+    PERSONAL DETAIL*
     <div class="row">
       <div class="col-xl-6">
         <div class="comment-form__input-box">
@@ -51,13 +51,18 @@
             <i class="far fa-user-circle"></i>
           </div>
         </div>
+        <div *ngIf="submitted && c.full_name.errors" class="mb-2 text-danger">
+          <div *ngIf="c.full_name.errors.required">Full name is required</div>
+        </div>
+
       </div>
     </div>
     <!-- End of Personal Detail -->
+    <br/><br/>
 
 
     <!-- Organization Details -->
-    Organization Details*
+    ORGANIZATION DETAIL*
     <div class="row">
 
       <div class="col-xl-3">
@@ -67,6 +72,10 @@
           <div class="comment-form__icon">
             <i class="far fa-building"></i>
           </div>
+          <div *ngIf="submitted && c.company_name.errors" class="mb-2 text-danger">
+            <div *ngIf="c.company_name.errors.required">Company name is required</div>
+          </div>
+
         </div>
       </div>
       <div class="col-xl-3">
@@ -76,6 +85,11 @@
           <div class="comment-form__icon">
             <i class="far fa-map"></i>
           </div>
+          <div *ngIf="submitted && c.postcode.errors" class="mb-2 text-danger">
+            <div *ngIf="c.postcode.errors.required">Postcode is required</div>
+            <div *ngIf="c.postcode.errors.pattern">Postcode must be valid (Exclude any space)</div>
+          </div>
+
         </div>
       </div>
       <div class="col-xl-3">
@@ -85,6 +99,10 @@
           <div class="comment-form__icon">
             <i class="far fa-envelope"></i>
           </div>
+          <div *ngIf="submitted && c.contact.errors" class="mb-2 text-danger">
+            <div *ngIf="c.contact.errors.required">Contact is required</div>
+          </div>
+
         </div>
       </div>
       <div class="col-xl-3">
@@ -94,6 +112,11 @@
           <div class="comment-form__icon">
             <i class="far fa-envelope"></i>
           </div>
+          <div *ngIf="submitted && c.email.errors" class="mb-2 text-danger">
+            <div *ngIf="c.email.errors.required">Email is required</div>
+            <div *ngIf="c.email.errors.pattern">Email must be valid</div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -102,9 +125,9 @@
     <!-- Booking Details -->
     <!-- End of Booking Details -->
 
-
+<br/><br/>
     <!-- Booking Details -->
-    Booking Details*
+    BOOKING DETAILS*
     <div formArrayName="staffs">
 
       <div class="row"  *ngFor="let quantity of staffs().controls; let i=index;" [formGroupName]="i">
@@ -112,8 +135,10 @@
         <div class="col-xl-3">
 
           <div class="comment-form__input-box">
-            <select formControlName="staff_id" >
-              <option value="" hidden disabled selected>Select Staff Type</option>
+            <label for="staff_id">Select Staff Type:</label><br>
+
+            <select formControlName="staff_id" name="staff_id">
+              <option value="" hidden disabled selected></option>
               <option value="1">Volvo</option>
               <option value="2">Saab</option>
               <option value="3">Mercedes</option>
@@ -130,7 +155,9 @@
         <div class="col-xl-3">
 
           <div class="comment-form__input-box">
-            <input type="date" placeholder="Choose Date" formControlName="date">
+            <label for="date">Date:</label><br>
+
+            <input type="date" placeholder="Choose Date" formControlName="date" name="date">
 
             <div class="comment-form__icon">
               <!-- <i class="far fa-map"></i> -->
@@ -141,19 +168,23 @@
         <div class="col-xl-2">
 
           <div class="comment-form__input-box">
-            <input type="time" placeholder="Time from" formControlName="from">
-            <div class="comment-form__icon">
+            <label for="from">Time From:</label><br>
+
+            <input type="time" placeholder="Time from" formControlName="from" name="from">
+            <!-- <div class="comment-form__icon">
               <i class="far fa-clock"></i>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-xl-2">
 
           <div class="comment-form__input-box">
-            <input type="time" placeholder="Time To" formControlName="to">
-            <div class="comment-form__icon">
+            <label for="to">Time To:</label><br>
+
+            <input type="time" placeholder="Time To" formControlName="to" name="to">
+            <!-- <div class="comment-form__icon">
               <i class="far fa-clock"></i>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-xl-2">
@@ -177,8 +208,9 @@
     </div>
     <!-- End of Add and Remove button -->
 
+    <br/><br/>
     <!-- Additional Details -->
-    Additional Details
+    ADDITIONAL DETAILS
     <div class="row">
 
       <div class="col-xl-4">
@@ -242,7 +274,7 @@
         <button type="submit" class="thm-btn comment-form__btn">Submit</button>
       </div>
       <div class="col-xl-4">
-        <button (click)="clear()" class="thm-btn comment-form__btn">Reset Form</button>
+        <span (click)="clear()" class="thm-btn comment-form__btn">Reset Form</span>
       </div>
 
     </div>

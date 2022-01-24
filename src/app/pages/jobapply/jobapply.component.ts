@@ -81,9 +81,12 @@ export class JobapplyComponent implements OnInit {
     // Getter for easy access to form fields
     get c() { return this.jobForm.controls; }
 
-    // Reset form
+    // Reset form 
     clear(){
       this.jobForm.reset({
+        drive:"",
+        access_to_car:"",
+        no_of_days: ""
       });
     }
 
