@@ -16,191 +16,220 @@
 <!--Message Box Start-->
 <section class="message-box">
   <div class="container">
-
     <div class="row">
-      <!-- <div class="col-xl-4 col-lg-5">
-      <div class="message-box__left">
-      <div class="section-title text-left">
-      <h2 class="section-title__title">get in touch with our team</h2>
+      <div class="col-xl-12 col-lg-12">
+        <div class="message-box__right">
+          <div *ngIf="bookingSuccess">
+            Applied for vacancy successfully.
+          </div>
+
+          <!-- Start of form -->
+          <form *ngIf="!jobSuccess" class="comment-one__form contact-form-validated"
+          [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+
+          <!-- Start of first row -->
+          <div class="row">
+
+            <!-- Full name -->
+            <div class="col-xl-6">
+              <div class="comment-form__input-box">
+                <input type="text" placeholder="Full Name" name="full_name" formControlName="full_name">
+                <div class="comment-form__icon">
+                  <i class="far fa-user-circle"></i>
+                </div>
+                <div *ngIf="submitted && c.full_name.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.full_name.errors.required">Full name is required</div>
+                  <div *ngIf="c.full_name.errors.pattern">Full name must be valid</div>
+                </div>
+              </div>
+            </div>
+            <!-- End of full name -->
+
+
+            <!-- Contact -->
+            <div class="col-xl-6">
+              <div class="comment-form__input-box">
+                <input type="text" placeholder="Contact" formControlName="phone">
+                <div class="comment-form__icon">
+                  <i class="far fa-envelope"></i>
+                </div>
+                <div *ngIf="submitted && c.phone.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.phone.errors.required">Contact is required</div>
+                </div>
+              </div>
+            </div>
+            <!-- End of contact -->
+
+          </div>
+          <!-- End of first row -->
+
+
+          <!-- Start of second row  -->
+          <div class="row">
+
+            <!-- Email  -->
+            <div class="col-xl-6">
+
+              <div class="comment-form__input-box">
+                <input type="email" placeholder="Email Address" formControlName="email">
+                <div class="comment-form__icon">
+                  <i class="far fa-envelope"></i>
+                </div>
+                <div *ngIf="submitted && c.full_name.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.email.errors.required">Email is required</div>
+                  <div *ngIf="c.email.errors.pattern">Email must be valid</div>
+                </div>
+              </div>
+            </div>
+            <!-- End of email  -->
+
+            <!-- Postcode  -->
+            <div class="col-xl-6">
+              <div class="comment-form__input-box">
+                <input type="text" placeholder="Postcode" formControlName="postcode">
+                <div class="comment-form__icon">
+                  <i class="far fa-map"></i>
+                </div>
+                <div *ngIf="submitted && c.postcode.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.postcode.errors.required">Postcode is required</div>
+                  <div *ngIf="c.postcode.errors.pattern">Postcode must be valid (Exclude any space)</div>
+                </div>
+              </div>
+            </div>
+            <!-- End of postcode  -->
+
+          </div>
+          <!-- End of second row  -->
+
+
+          <!-- Start of third row -->
+          <div class="row">
+
+            <!-- Do you drive? -->
+            <div class="col-xl-6">
+              <div class="comment-form__input-box">
+                <label for="drive">Do you drive?</label><br>
+                <select formControlName="drive" name="drive">
+                  <option value="" hidden disabled selected>Do you drive?</option>
+                  <option value="1">Yes</option>
+                  <option value="2">No</option>
+                  <div class="comment-form__icon">
+                    <i class="far fa-chevron-down"></i>
+                  </div>
+                </select>
+                <div *ngIf="submitted && c.drive.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.drive.errors.required">An answer is required for driving</div>
+                </div>
+              </div>
+            </div>
+            <!-- End of do you drive? -->
+
+            <!-- Access to a car -->
+            <div class="col-xl-6">
+
+              <div class="comment-form__input-box">
+                <label for="access_to_car">Do you have access to a car?</label><br>
+
+                <select formControlName="access_to_car" name="access_to_car">
+                  <option value="" hidden disabled selected>Do you have access to a car?</option>
+                  <option value="1">Yes</option>
+                  <option value="2">No</option>
+                  <!-- <input type="date" placeholder="Choose Date" name="date"> -->
+                  <div class="comment-form__icon">
+                    <i class="far fa-chevron-down"></i>
+                  </div>
+                </select>
+                <div *ngIf="submitted && c.access_to_car.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.access_to_car.errors.required">An answer is required for access to car</div>
+                </div>
+
+              </div>
+            </div>
+            <!-- End of access to a car -->
+
+          </div>
+          <!-- End of second row -->
+
+
+          <!-- Start of fourth row -->
+          <div class="row">
+
+            <!-- Days per week -->
+            <div class="col-xl-6">
+              <div class="comment-form__input-box">
+                <label for="no_of_days">No. of days available per week?</label><br>
+                <select formControlName="no_of_days" name="no_of_days">
+                  <option value="" hidden disabled selected> </option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <div class="comment-form__icon">
+                    <i class="far fa-chevron-down"></i>
+                  </div>
+                </select>
+                <div *ngIf="submitted && c.no_of_days.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.no_of_days.errors.required">No. of days is required</div>
+                </div>
+              </div>
+            </div>
+            <!-- End of days per week -->
+
+            <!-- CV -->
+            <div class="col-xl-6">
+
+              <div class="comment-form__input-box">
+                <label for="cv">Upload you CV</label><br>
+
+                <input type="file"  placeholder="CV" formControlName="cv" name="cv" class="custom-file-input"
+                accept="application/msword, application/pdf"
+                (change)="handleFileInput($event.target.files)">
+                <div *ngIf="submitted && c.cv.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.cv.errors.required">CV is required</div>
+                </div>
+
+              </div>
+            </div>
+            <!-- End of CV -->
+
+          </div>
+          <!-- End of fourth row -->
+
+
+          <!-- Start of term and condition -->
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="comment-form__input-box" id="tnc">
+                <input type="checkbox" id="checkid"  class="mb-1" type="checkbox" value="test" />&nbsp; By booking the service you agree to the Lifeline Recruitment booking <a href="" target="blank_"> <b>Terms and Condition</b></a>.
+                <!-- <input id="tnc1"  type="checkbox" id="scales" name="scales">
+                <label id="tnc2"  for="scales"> &nbsp;&nbsp; By booking the service you agree to the Lifeline Recruitment booking Terms and Condition.</label> -->
+                <!-- <label for="checkid"   style="word-wrap:break-word"> -->
+                <!-- </label> -->
+              </div>
+            </div>
+          </div>
+          <!-- End of term and condition -->
+
+          <!-- Button row -->
+          <div class="row">
+            <div class="col-xl-2">
+              <button type="submit" class="thm-btn comment-form__btn">Submit</button>
+            </div>
+            <div class="col-xl-4">
+              <button (click)="clear()" class="thm-btn comment-form__btn">Reset Form</button>
+            </div>
+          </div>
+          <!-- End of button row -->
+
+        </form>
+        <!-- End of form -->
+
+      </div>
     </div>
-    <div class="message-box__social">
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#" class="clr-fb"><i class="fab fa-facebook"></i></a>
-    <a href="#" class="clr-dri"><i class="fab fa-dribbble"></i></a>
-    <a href="#" class="clr-ins"><i class="fab fa-instagram"></i></a>
   </div>
 </div>
-</div> -->
-<div class="col-xl-12 col-lg-12">
-  <div class="message-box__right">
-    <div *ngIf="bookingSuccess">
-      Applied for vacancy successfully.
-    </div>
-    <form *ngIf="!jobSuccess" class="comment-one__form contact-form-validated"
-    [formGroup]="jobForm" (ngSubmit)="onSubmit()">
-
-    <!-- Personal Detail -->
-    Personal Details*
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="comment-form__input-box">
-          <!-- <label for="power">Personal Details</label> -->
-
-          <input type="text" placeholder="Full Name" name="full_name" formControlName="full_name">
-          <div class="comment-form__icon">
-            <i class="far fa-user-circle"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6">
-
-        <div class="comment-form__input-box">
-          <select formControlName="staff_id" >
-            <option value="" hidden disabled selected>No. of days available per week </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-
-            <!-- <input type="date" placeholder="Choose Date" name="date"> -->
-            <div class="comment-form__icon">
-              <i class="far fa-chevron-down"></i>
-            </div>
-          </select>
-
-        </div>
-      </div>
-
-    </div>
-    <!-- End of Personal Detail -->
-
-
-    <!-- Organization Details -->
-    Organization Details*
-    <div class="row">
-      <div class="col-xl-6">
-
-        <div class="comment-form__input-box">
-          <input type="text" placeholder="Contact" formControlName="contact">
-          <div class="comment-form__icon">
-            <i class="far fa-envelope"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xl-6">
-
-        <div class="comment-form__input-box">
-          <input type="email" placeholder="Email Address" formControlName="email">
-          <div class="comment-form__icon">
-            <i class="far fa-envelope"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Organization Details -->
-    Organization Details*
-    <div class="row">
-      <div class="col-xl-6">
-
-        <div class="comment-form__input-box">
-          <select formControlName="staff_id" >
-            <option value="" hidden disabled selected>Do you drive?</option>
-            <option value="1">Yes</option>
-            <option value="2">No</option>
-
-            <!-- <input type="date" placeholder="Choose Date" name="date"> -->
-            <div class="comment-form__icon">
-              <i class="far fa-chevron-down"></i>
-            </div>
-          </select>
-
-        </div>
-      </div>
-
-      <div class="col-xl-6">
-
-        <div class="comment-form__input-box">
-          <select formControlName="staff_id" >
-            <option value="" hidden disabled selected>Do you have access to a car?</option>
-            <option value="1">Yes</option>
-            <option value="2">No</option>
-            <!-- <input type="date" placeholder="Choose Date" name="date"> -->
-            <div class="comment-form__icon">
-              <i class="far fa-chevron-down"></i>
-            </div>
-          </select>
-
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Organization Details -->
-    Organization Details*
-    <div class="row">
-
-      <div class="col-xl-6">
-
-        <div class="comment-form__input-box">
-          <input type="text" placeholder="Postcode" formControlName="postcode">
-          <div class="comment-form__icon">
-            <i class="far fa-map"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6">
-
-        <div class="comment-form__input-box">
-          <input type="text" placeholder="Postcode" formControlName="postcode">
-          <div class="comment-form__icon">
-            <i class="far fa-map"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End of Organization Details -->
-
-
-
-    <!-- Additional Information -->
-    <div class="row">
-
-      <div class="col-xl-12">
-        <div class="comment-form__input-box" id="tnc">
-
-          <!-- <input id="tnc1"  type="checkbox" id="scales" name="scales">
-          <label id="tnc2"  for="scales"> &nbsp;&nbsp; By booking the service you agree to the Lifeline Recruitment booking Terms and Condition.</label> -->
-          <!-- <label for="checkid"   style="word-wrap:break-word"> -->
-          <input type="checkbox" id="checkid"  class="mb-1" type="checkbox" value="test" />&nbsp; By booking the service you agree to the Lifeline Recruitment booking <a href="" target="blank_"> <b>Terms and Condition</b></a>.
-          <!-- </label> -->
-
-        </div>
-      </div>
-
-    </div>
-    <!-- End of Additional Information -->
-    <!-- Additional Information -->
-    <div class="row">
-
-      <div class="col-xl-2">
-        <button type="submit" class="thm-btn comment-form__btn">Submit</button>
-      </div>
-      <div class="col-xl-4">
-        <button (click)="clear()" class="thm-btn comment-form__btn">Reset Form</button>
-      </div>
-
-    </div>
-    <!-- End of Additional Information -->
-
-
-  </form>
-</div>
-</div>
-</div>
-</div>
 </section>
+<!--Message Box End-->

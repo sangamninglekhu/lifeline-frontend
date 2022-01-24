@@ -22,20 +22,20 @@
 <!--News One Start-->
 <section class="news-one news-one__page">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0ms"
-                data-wow-duration="1500ms">
+        <div class="row" *ngFor="let hero of allVacancy; let i = index" >
+            <div class="col-xl-12 col-lg-12 col-md-12 wow fadeInUp" data-wow-delay="0ms"
+                data-wow-duration="1500ms" (click)="onClick(hero.slug);">
                 <!--News One Single-->
-                <div class="news-one__single">
-                    <div class="news-one__img">
+                <div class="news-one__single" >
+                    <!-- <div class="news-one__img">
                         <img src="assets/images/blog/news-page-1.jpg" alt="">
-                        <a href="blog-details.html">
+                        <a >
                             <span class="news-one__plus"></span>
                         </a>
-                    </div>
+                    </div> -->
                     <div class="news-one__content">
                         <ul class="list-unstyled news-one__meta">
-                            <li><a href="#"><i class="far fa-user-circle"></i> by Admin</a></li>
+                            <li><a href="#"><i class="far fa-user-circle"></i> by {{hero.slug}}</a></li>
                             <li><span>/</span></li>
                             <li><a href="#"><i class="far fa-comments"></i> 2 Comments</a>
                             </li>
@@ -52,9 +52,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms"
+
+            <!-- <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms"
                 data-wow-duration="1500ms">
-                <!--News One Single-->
                 <div class="news-one__single">
                     <div class="news-one__img">
                         <img src="assets/images/blog/news-page-2.jpg" alt="">
@@ -83,7 +83,6 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms"
                 data-wow-duration="1500ms">
-                <!--News One Single-->
                 <div class="news-one__single">
                     <div class="news-one__img">
                         <img src="assets/images/blog/news-page-3.jpg" alt="">
@@ -112,7 +111,6 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms"
                 data-wow-duration="1500ms">
-                <!--News One Single-->
                 <div class="news-one__single">
                     <div class="news-one__img">
                         <img src="assets/images/blog/news-page-4.jpg" alt="">
@@ -141,7 +139,6 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms"
                 data-wow-duration="1500ms">
-                <!--News One Single-->
                 <div class="news-one__single">
                     <div class="news-one__img">
                         <img src="assets/images/blog/news-page-5.jpg" alt="">
@@ -170,7 +167,6 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="500ms"
                 data-wow-duration="1500ms">
-                <!--News One Single-->
                 <div class="news-one__single">
                     <div class="news-one__img">
                         <img src="assets/images/blog/news-page-6.jpg" alt="">
@@ -196,11 +192,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <div class="news-one__more text-center">
+        <!-- <div class="news-one__more text-center">
             <a href="blog.html" class="thm-btn">Load More</a>
-        </div><!-- /.news-one__more text-center -->
+        </div> -->
+        <!-- /.news-one__more text-center -->
     </div>
 </section>
 <!--News One End-->

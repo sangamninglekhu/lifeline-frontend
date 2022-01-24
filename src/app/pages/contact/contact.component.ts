@@ -10,20 +10,22 @@ import { Vacancy } from '@app/models';
 })
 export class ContactComponent implements OnInit {
 
+  // Initializing required variables
   contactForm: FormGroup;
-  contactForm2: FormGroup;
   checked: boolean = false;
-  defaultState;
   contactSuccess: boolean = false;
   loading: boolean = false;
-  error: string;
   submitted = false;
+  error: string;
+  defaultState;
+
 
   constructor(
     private fb:FormBuilder,
     private elementRef: ElementRef,
     private contactService: ContactService
   ) {
+    // Get the last values of the form
     const value = JSON.parse(localStorage.getItem('contactFormValue'));
 
     // Form group for contact form
@@ -34,7 +36,7 @@ export class ContactComponent implements OnInit {
       contact_message: [value && value.contact_message || '', Validators.required]
     });
 
-    // Get the laast state of the contact form
+    // Get the last state of the contact form
     this.defaultState = this.contactForm.value;
 
     // Pre-fill the form with previous data. Handy on accidental page refresh or reloads.
@@ -46,19 +48,13 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     var s = document.createElement("script");
-
     s.src = "../../assets/js/aivons.js";
     this.elementRef.nativeElement.appendChild(s);
-
   }
 
-
+  // Function to run after form submission
   onSubmit() {
-
-
     console.log("contactForm: ", this.contactForm.value);
-
-
     // console.log((<FormArray>this.bookForm.get('staffs')).controls[0]);
     // return;
 
@@ -71,6 +67,7 @@ export class ContactComponent implements OnInit {
       return;
     }
 
+    // Calling function to send message to the API
     this.contactService.sendMessage(this.contactForm.value).subscribe(
       data => {
         this.contactSuccess = true;
@@ -85,6 +82,8 @@ export class ContactComponent implements OnInit {
       });
 
   }
+
+  // Getter for easy access to form fields
   get c() { return this.contactForm.controls; }
 
 

@@ -95,6 +95,7 @@ h6 {
 
 .contact-expert__input input[type="email"],
 .contact-expert__input input[type="text"],
+.contact-expert__input input[type="file"],
 .contact-expert__input input[type="date"],
 .contact-expert__input textarea,
 .services-two__single,
@@ -120,6 +121,7 @@ h6 {
 .faqs-page,
 .comment-form__input-box input[type="text"],
 .comment-form__input-box input[type="email"],
+.comment-form__input-box input[type="file"],
 .comment-form__input-box input[type="date"],
 .comment-form__input-box textarea,
 .cases-details__right-list,

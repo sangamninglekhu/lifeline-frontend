@@ -27,4 +27,14 @@ export class CareerService {
 
   }
 
+  postFile(job) {
+    // const endpoint = 'your-destination-url';
+    // const formData: FormData = new FormData();
+    // formData.append('fileKey', fileToUpload, fileToUpload.name);
+    return this.http.post(`${baseUrl}/careerOpportunities`, job);
+      // .map(() => { return true; })
+      // .catch((e) => this.handleError(e));
+}
+
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { ActivatedRoute, Router, NavigationStart, NavigationExtras } from '@angular/router';
 import { Vacancy } from '@app/models';
 import { CareerService } from '@app/services';
 @Component({
@@ -12,8 +13,9 @@ export class CareerComponent implements OnInit {
 
   constructor(
     private elementRef: ElementRef,
-    private vacancyService: CareerService
-
+    private vacancyService: CareerService,
+    public activatedRoute: ActivatedRoute,
+    public router: Router
   ) { }
 
   ngOnInit() {
@@ -34,5 +36,17 @@ export class CareerComponent implements OnInit {
     s.src = "../../assets/js/aivons.js";
     this.elementRef.nativeElement.appendChild(s);
   }
+
+  /** Navigate to the respective service along with entered search term as parameter */
+  onClick(jobId: string) {
+    console.log("slug: ",jobId);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        "job": jobId
+      }
+    };
+    this.router.navigate(["/applyJob"], navigationExtras);
+  }
+
 
 }

@@ -1486,6 +1486,7 @@ body.boxed-wrapper {
 .search-popup__content form input[type="search"],
 .search-popup__content form input[type="date"],
 .search-popup__content form input[type="time"],
+.search-popup__content form input[type="file"],
 .search-popup__content form input[type="text"] {
     width: 100%;
     background-color: var(--thm-base);
@@ -5068,6 +5069,7 @@ body.boxed-wrapper {
 .contact-expert__input input[type="email"],
 .contact-expert__input input[type="text"],
 .contact-expert__input input[type="date"],
+.contact-expert__input input[type="file"],
 .contact-expert__input textarea {
     width: 100%;
     height: 70px;
@@ -7350,6 +7352,7 @@ body.boxed-wrapper {
 .comment-form__input-box input[type="text"],
 .comment-form__input-box input[type="email"],
 .comment-form__input-box input[type="time"],
+.comment-form__input-box input[type="file"],
 .comment-form__input-box input[type="date"] {
     height: 70px;
     width: 100%;
