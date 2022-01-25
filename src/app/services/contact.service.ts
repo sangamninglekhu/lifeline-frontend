@@ -27,7 +27,7 @@ export class ContactService {
       // let options = { headers: headers };
 
       console.log("printing message: ", contact_message);
-      return this.http.post(`${baseUrl}/contactUs`, contact_message);
+      return this.http.post(`${baseUrl}/contactUs`, contact_message, { responseType: 'text' });
     }
 
   }

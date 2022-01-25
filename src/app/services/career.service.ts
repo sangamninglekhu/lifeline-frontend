@@ -36,5 +36,30 @@ export class CareerService {
       // .catch((e) => this.handleError(e));
 }
 
+  applyJob(application, slug, fileToUpload: File) {
+    // console.log("printing application 1: ",slug, application);
+    //
+    // delete application['cv'];
+    //
+    // application['cv'] = fileToUpload.name;
+    //
+    const formData: FormData = new FormData();
+    formData.append('cv', fileToUpload, fileToUpload.name);
+    formData.append('full_name', application['full_name']);
+    formData.append('no_of_days', application['no_of_days']);
+    formData.append('phone', application['phone']);
+    formData.append('email', application['email']);
+    formData.append('drive', application['drive']);
+    formData.append('car', application['access_to_car']);
+    formData.append('post_code', application['postcode']);
+    // application['cv'] = formData;
+
+
+    // console.log("printing formdata: ", formData);
+    console.log("printing application 2: ", application,formData);
+    console.log("printing application 3: ", formData);
+    return this.http.post(`${baseUrl}/apply/${slug}`, formData,{ responseType: 'text' });
+  }
+
 
 }

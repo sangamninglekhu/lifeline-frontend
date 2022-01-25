@@ -33,10 +33,10 @@
 </div> -->
 <div class="col-xl-12 col-lg-12">
   <div class="message-box__right">
-  <div *ngIf="bookingSuccess">
-    Booking recorded successful
+  <div *ngIf="bookingSuccess" class="text-success">
+    Booking recorded successful!
     </div>
-    <form *ngIf="!bookingSuccess" class="comment-one__form contact-form-validated"
+    <form *ngIf="!bookingSuccess" class="comment-one__form"
     [formGroup]="bookForm" (ngSubmit)="onSubmit()">
 
     <!-- Personal Detail -->
@@ -72,10 +72,9 @@
           <div class="comment-form__icon">
             <i class="far fa-building"></i>
           </div>
-          <div *ngIf="submitted && c.company_name.errors" class="mb-2 text-danger">
-            <div *ngIf="c.company_name.errors.required">Company name is required</div>
-          </div>
-
+        </div>
+        <div *ngIf="submitted && c.company_name.errors" class="mb-2 text-danger">
+          <div *ngIf="c.company_name.errors.required">Company name is required</div>
         </div>
       </div>
       <div class="col-xl-3">
@@ -85,11 +84,10 @@
           <div class="comment-form__icon">
             <i class="far fa-map"></i>
           </div>
-          <div *ngIf="submitted && c.postcode.errors" class="mb-2 text-danger">
-            <div *ngIf="c.postcode.errors.required">Postcode is required</div>
-            <div *ngIf="c.postcode.errors.pattern">Postcode must be valid (Exclude any space)</div>
-          </div>
-
+        </div>
+        <div *ngIf="submitted && c.postcode.errors" class="mb-2 text-danger">
+          <div *ngIf="c.postcode.errors.required">Postcode is required</div>
+          <div *ngIf="c.postcode.errors.pattern">Postcode must be valid (Exclude any space)</div>
         </div>
       </div>
       <div class="col-xl-3">
@@ -99,10 +97,9 @@
           <div class="comment-form__icon">
             <i class="far fa-envelope"></i>
           </div>
-          <div *ngIf="submitted && c.contact.errors" class="mb-2 text-danger">
-            <div *ngIf="c.contact.errors.required">Contact is required</div>
-          </div>
-
+        </div>
+        <div *ngIf="submitted && c.contact.errors" class="mb-2 text-danger">
+          <div *ngIf="c.contact.errors.required">Contact is required</div>
         </div>
       </div>
       <div class="col-xl-3">
@@ -112,11 +109,10 @@
           <div class="comment-form__icon">
             <i class="far fa-envelope"></i>
           </div>
-          <div *ngIf="submitted && c.email.errors" class="mb-2 text-danger">
-            <div *ngIf="c.email.errors.required">Email is required</div>
-            <div *ngIf="c.email.errors.pattern">Email must be valid</div>
-          </div>
-
+        </div>
+        <div *ngIf="submitted && c.email.errors" class="mb-2 text-danger">
+          <div *ngIf="c.email.errors.required">Email is required</div>
+          <div *ngIf="c.email.errors.pattern">Email must be valid</div>
         </div>
       </div>
     </div>
@@ -226,17 +222,20 @@
 
         <div class="comment-form__input-box">
           <select formControlName="parking_id">
-            <option value="" hidden disabled selected>Select Parking Information</option>
+            <option value="" hidden disabled selected>Select Parking Information*</option>
             <option value="1">Volvo</option>
             <option value="2">Saab</option>
             <option value="3">Mercedes</option>
             <option value="4">Audi</option>
           </select>
-
           <!-- <input type="date" placeholder="Choose Date" name="date"> -->
           <div class="comment-form__icon">
             <i class="far fa-chevron-down"></i>
           </div>
+          <div *ngIf="submitted && c.parking_id.errors" class="mb-2 text-danger">
+            <div *ngIf="c.parking_id.errors.required">Parking is required</div>
+          </div>
+
         </div>
       </div>
       <div class="col-xl-4">

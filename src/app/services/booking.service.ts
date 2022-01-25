@@ -37,14 +37,6 @@ export class BookingService {
     booking['date']=l2;
     booking['from']=l3;
     booking['to']=l4;
-    // this.bookForm.addControl('staff', new FormControl(''));
-    // this.bookForm.controls['staff'].setValue(l1);
-    // this.bookForm.addControl('date', new FormControl(''));
-    // this.bookForm.controls['date'].setValue(l2);
-    // this.bookForm.addControl('from', new FormControl(''));
-    // this.bookForm.controls['from'].setValue(l3);
-    // this.bookForm.addControl('to', new FormControl(''));
-    // this.bookForm.controls['to'].setValue(l4);
 
     // this.bookForm2=this.bookForm.value;
     delete booking['staffs'];

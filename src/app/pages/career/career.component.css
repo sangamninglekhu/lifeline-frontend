@@ -1,0 +1,17 @@
+.container{
+  margin-top: 15px;
+}
+
+.news-one__single{
+  cursor: pointer;
+}
+
+.news-one__content, .news-one__single, .wow{
+  /* border: 2px solid; */
+  margin-bottom: 80px;
+
+}
+
+.news-one__content{
+  border: 1px solid;
+}

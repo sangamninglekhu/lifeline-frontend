@@ -22,9 +22,9 @@
     <div class="container">
         <div class="row" *ngFor="let hero of allVacancy; let i = index" >
             <div class="col-xl-12 col-lg-12 col-md-12 wow fadeInUp" data-wow-delay="0ms"
-                data-wow-duration="1500ms" (click)="onClick(hero.slug);">
+                data-wow-duration="1500ms" >
                 <!--News One Single-->
-                <div class="news-one__single" >
+                <div class="news-one__single" (click)="onClick(hero.slug);" >
                     <!-- <div class="news-one__img">
                         <img src="assets/images/blog/news-page-1.jpg" alt="">
                         <a >
@@ -41,7 +41,7 @@
                         <h3 class="news-one__title">
                             <a (click)="onClick(hero.slug);">{{hero.position}}</a>
                         </h3>
-                        <p class="news-one__text">{{hero.requirements}}</p>
+                        <p class="news-one__text" [innerHTML]="hero.requirements"></p>
                         <a (click)="onClick(hero.slug);" class="news-one__btn">Apply</a>
                         <div class="news-one__date-box">
                             <p>{{hero.created_at| date}}</p>

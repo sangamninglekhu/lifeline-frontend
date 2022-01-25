@@ -7,7 +7,7 @@
         <!-- <li><span>/</span></li> -->
         <li>Job Application</li>
       </ul>
-      <h2>Career</h2>
+      <h2>Applying for {{vacancyId}}</h2>
     </div>
   </div>
 </section>
@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-xl-12 col-lg-12">
         <div class="message-box__right">
-          <div *ngIf="bookingSuccess">
+          <div *ngIf="jobSuccess" class="text-success">
             Applied for vacancy successfully.
           </div>
 
@@ -109,7 +109,7 @@
             <div class="col-xl-6">
               <div class="comment-form__input-box">
                 <select formControlName="drive" name="drive">
-                  <option value="" hidden disabled selected>Do you drive?</option>
+                  <option value="" disabled selected>Do you drive?</option>
                   <option value="1">Yes</option>
                   <option value="2">No</option>
                   <div class="comment-form__icon">
@@ -128,7 +128,7 @@
 
               <div class="comment-form__input-box">
                 <select formControlName="access_to_car" name="access_to_car">
-                  <option value="" hidden disabled selected>Do you have access to a car?</option>
+                  <option value="" disabled selected>Do you have access to a car?</option>
                   <option value="1">Yes</option>
                   <option value="2">No</option>
                   <div class="comment-form__icon">
@@ -154,7 +154,7 @@
             <div class="col-xl-6">
               <div class="comment-form__input-box">
                 <select formControlName="no_of_days" name="no_of_days">
-                  <option value="" hidden disabled selected> No. of days per week</option>
+                  <option value="" disabled selected> No. of days per week</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -177,14 +177,13 @@
             <div class="col-xl-6">
 
               <div class="comment-form__input-box">
-                <input type="file"  placeholder="CV" formControlName="cv" name="cv" class="custom-file-input"
-                accept="application/msword, application/pdf"
-                (change)="handleFileInput($event.target.files)">
-                <div *ngIf="submitted && c.cv.errors" class="mb-2 text-danger">
-                  <div *ngIf="c.cv.errors.required">CV is required</div>
-                </div>
-
+                <input type="file" placeholder="CV" name="cv" class="custom-file-input"
+                accept="application/msword, application/pdf" (change)="handleFileInput($event.target.files)">
               </div>
+              <div *ngIf="submitted && fileEmpty" class="mb-2 text-danger">
+                <div *ngIf="fileEmpty">CV is required</div>
+              </div>
+
             </div>
             <!-- End of CV -->
 

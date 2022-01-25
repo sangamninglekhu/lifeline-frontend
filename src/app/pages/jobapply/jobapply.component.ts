@@ -18,6 +18,7 @@ export class JobapplyComponent implements OnInit {
   fileToUpload: File | null = null;
   vacancyId: string;
   submitted:boolean = false;
+  fileEmpty:boolean = true;
 
   constructor(
     private fb:FormBuilder,
@@ -37,7 +38,7 @@ export class JobapplyComponent implements OnInit {
       drive: [value && value.drive || '', Validators.required],
       access_to_car: [value && value.access_to_car || '', Validators.required],
       postcode: [value && value.postcode || '', [Validators.required, Validators.pattern("([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})")]],
-      cv: [value && value.cv || '', Validators.required],
+      cv: [value && value.cv || '', Validators.required]
     });
 
     // Get the last state of the contact form
@@ -62,18 +63,21 @@ export class JobapplyComponent implements OnInit {
   // Function to run after form submission
   onSubmit() {
     this.submitted=true;
+    console.log("my slug = ", this.vacancyId, this.fileEmpty, this.jobForm.get('cv').value);
+
     // stop here if form is invalid
-    if (this.jobForm.invalid) {
+    if (this.jobForm.invalid || this.fileEmpty) {
       console.log("form failed");
       return;
     }
 
-    (this.careerService.postFile(this.jobForm.value).subscribe(
+    (this.careerService.applyJob(this.jobForm.value, this.vacancyId, this.fileToUpload).subscribe(
       data => {
-        // this.allVacancy = data;
+        this.jobSuccess = true;
         console.log("Success : ",data);
       },
       error => {
+        this.jobSuccess = false;
         console.log("error: ",error.message,error);
       }));
     }
@@ -81,8 +85,9 @@ export class JobapplyComponent implements OnInit {
     // Getter for easy access to form fields
     get c() { return this.jobForm.controls; }
 
-    // Reset form 
+    // Reset form
     clear(){
+      this.fileEmpty=true;
       this.jobForm.reset({
         drive:"",
         access_to_car:"",
@@ -92,7 +97,11 @@ export class JobapplyComponent implements OnInit {
 
     // Handling files for CV form field
     handleFileInput(files: FileList) {
+      this.fileEmpty=false;
       this.fileToUpload = files.item(0);
+      this.jobForm.get('cv').setValue(this.fileToUpload);
+
+      console.log("Checking CV : ",this.fileToUpload, this.jobForm);
     }
 
 

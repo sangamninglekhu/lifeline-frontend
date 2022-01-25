@@ -54,7 +54,7 @@ export class BookComponent implements OnInit {
       company_name: [value && value.company_name || '', Validators.required],
       postcode: [value && value.postcode || '', [Validators.required, Validators.pattern("([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})")]],
       contact: [value && value.contact || '', Validators.required],
-      email: [value && value.email || '', Validators.required],
+      email: [value && value.email || '', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"), Validators.maxLength(100)]],
       staffs: this.fb.array([
         this.fb.group({
           staff_id: ['', Validators.required],
