@@ -25,8 +25,6 @@ export class ContactService {
       //     'Content-Type': 'application/json'
       //      });
       // let options = { headers: headers };
-
-      console.log("printing message: ", contact_message);
       return this.http.post(`${baseUrl}/contactUs`, contact_message, { responseType: 'text' });
     }
 

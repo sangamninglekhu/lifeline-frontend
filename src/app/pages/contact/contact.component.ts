@@ -54,7 +54,6 @@ export class ContactComponent implements OnInit {
 
   // Function to run after form submission
   onSubmit() {
-    console.log("contactForm: ", this.contactForm.value);
     // console.log((<FormArray>this.bookForm.get('staffs')).controls[0]);
     // return;
 
@@ -63,7 +62,7 @@ export class ContactComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.contactForm.invalid) {
-      console.log("failed");
+      console.log("Invalid form");
       return;
     }
 
@@ -72,7 +71,6 @@ export class ContactComponent implements OnInit {
       data => {
         this.contactSuccess = true;
         this.loading = false;
-        console.log("success: ",data);
       },
       error => {
         this.contactSuccess = false;

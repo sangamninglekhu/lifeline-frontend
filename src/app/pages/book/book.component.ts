@@ -83,12 +83,10 @@ export class BookComponent implements OnInit {
         this.staffParking = data;
         this.staffTypes = this.staffParking.staffs;
         this.parkingTypes = this.staffParking.parking_info;
-        console.log("Success staffparking: ",data, this.staffTypes, this.parkingTypes);
 
       },
       error => {
         this.error = error.error.message;
-        console.log("error staff parking: ",error.message,error);
       });
 
 
@@ -141,11 +139,6 @@ export class BookComponent implements OnInit {
 
   onSubmit() {
 
-
-    console.log("after ", this.bookForm.value);
-    console.log("data2", this.bookForm2);
-
-
     // console.log((<FormArray>this.bookForm.get('staffs')).controls[0]);
     // return;
 
@@ -154,7 +147,7 @@ export class BookComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.bookForm.invalid) {
-      console.log("failed");
+      console.log(" Invalid form");
       return;
     }
 
@@ -175,14 +168,12 @@ export class BookComponent implements OnInit {
       data => {
         this.bookingSuccess = true;
         this.loading = false;
-        console.log("success: ",data);
 
       },
       error => {
         this.bookingSuccess = false;
         this.loading = false;
         this.error = error.error.message;
-        console.log("error: ",error.message,error);
       });
 
     }

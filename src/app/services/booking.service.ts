@@ -21,14 +21,12 @@ export class BookingService {
 
   // Reegister employee
   addBooking(booking) {
-    console.log("printing: ",booking.staffs, booking.staffs.length);
     // return;
     const l1 =[];
     const l2 =[];
     const l3 =[];
     const l4 =[];
     for (var val of booking.staffs) {
-      console.log("printing second: ",val, val.staff_id, val.date);
       l1.push(val.staff_id);
       l2.push(val.date);
       l3.push(val.from);
@@ -41,7 +39,6 @@ export class BookingService {
 
     // this.bookForm2=this.bookForm.value;
     delete booking['staffs'];
-    console.log('hi1!!!!! ', booking);
     ;
 
     return this.http.post(`${baseUrl}/bookStaff`, booking, { responseType: 'text' });

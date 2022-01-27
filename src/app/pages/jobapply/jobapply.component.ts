@@ -64,7 +64,6 @@ export class JobapplyComponent implements OnInit {
   // Function to run after form submission
   onSubmit() {
     this.submitted=true;
-    console.log("my slug = ", this.vacancyId, this.fileEmpty, this.jobForm.get('cv').value);
 
     // stop here if form is invalid
     if (this.jobForm.invalid || this.fileEmpty) {
@@ -75,7 +74,6 @@ export class JobapplyComponent implements OnInit {
     (this.careerService.applyJob(this.jobForm.value, this.vacancyId, this.fileToUpload).subscribe(
       data => {
         this.jobSuccess = true;
-        console.log("Success : ",data);
       },
       error => {
         this.jobSuccess = false;
@@ -101,8 +99,6 @@ export class JobapplyComponent implements OnInit {
       this.fileEmpty=false;
       this.fileToUpload = files.item(0);
       this.jobForm.get('cv').setValue(this.fileToUpload);
-
-      console.log("Checking CV : ",this.fileToUpload, this.jobForm);
     }
 
 

@@ -22,14 +22,10 @@ export class CareerComponent implements OnInit {
     (this.vacancyService.getVancancy().subscribe(
       data => {
         this.allVacancy = data;
-        console.log("all vacancy: ",this.allVacancy);
       },
       error => {
         console.log("error: ",error.message,error);
       }));
-
-
-    console.log(this.allVacancy);
 
     //loading all the necessary js files
     var s = document.createElement("script");
@@ -39,7 +35,6 @@ export class CareerComponent implements OnInit {
 
   /** Navigate to the respective service along with entered search term as parameter */
   onClick(jobId: string) {
-    console.log("slug: ",jobId);
     let navigationExtras: NavigationExtras = {
       queryParams: {
         "job": jobId

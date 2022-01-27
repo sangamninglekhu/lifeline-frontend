@@ -56,8 +56,6 @@ export class CareerService {
 
 
     // console.log("printing formdata: ", formData);
-    console.log("printing application 2: ", application,formData);
-    console.log("printing application 3: ", formData);
     return this.http.post(`${baseUrl}/apply/${slug}`, formData,{ responseType: 'text' });
   }
 
