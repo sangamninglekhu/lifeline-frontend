@@ -22,3 +22,10 @@
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
+
+button:disabled,
+button[disabled]{
+  /* border: 1px solid #999999; */
+  background-color: #cccccc;
+  color: #666666;
+}

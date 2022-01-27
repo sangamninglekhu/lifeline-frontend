@@ -195,7 +195,7 @@
           <div class="row">
             <div class="col-xl-12">
               <div class="comment-form__input-box" id="tnc">
-                <input type="checkbox" id="checkid"  class="mb-1" type="checkbox" value="test" />&nbsp; By booking the service you agree to the Lifeline Recruitment booking <a href="" target="blank_"> <b>Terms and Condition</b></a>.
+                <input type="checkbox" id="checkid"  class="mb-1" type="checkbox" value="test" (change)="checkbox = !checkbox"/>&nbsp; By booking the service you agree to the Lifeline Recruitment booking <a href="" target="blank_"> <b>Terms and Condition</b></a>.
                 <!-- <input id="tnc1"  type="checkbox" id="scales" name="scales">
                 <label id="tnc2"  for="scales"> &nbsp;&nbsp; By booking the service you agree to the Lifeline Recruitment booking Terms and Condition.</label> -->
                 <!-- <label for="checkid"   style="word-wrap:break-word"> -->
@@ -208,7 +208,7 @@
           <!-- Button row -->
           <div class="row">
             <div class="col-xl-2">
-              <button type="submit" class="thm-btn comment-form__btn">Submit</button>
+              <button [disabled]="!checkbox" type="submit" class="thm-btn comment-form__btn mb-3">Submit</button>
             </div>
             <div class="col-xl-4">
               <span (click)="clear()" class="thm-btn comment-form__btn">Reset Form</span>

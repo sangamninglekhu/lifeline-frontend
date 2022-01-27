@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Booking_info } from '@app/models';
+import { StaffParking } from '@app/models';
 import { Observable } from 'rxjs';
 
 // import { OktaAuthService } from '@okta/okta-angular';
@@ -44,6 +45,12 @@ export class BookingService {
     ;
 
     return this.http.post(`${baseUrl}/bookStaff`, booking, { responseType: 'text' });
+  }
+
+  // Get all the staff and parking types
+  getStaffParking() : Observable<StaffParking> {
+    return this.http.get<StaffParking>(`${baseUrl}/bookStaff`);
+
   }
 
 

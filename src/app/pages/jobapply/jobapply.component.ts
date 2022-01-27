@@ -19,6 +19,7 @@ export class JobapplyComponent implements OnInit {
   vacancyId: string;
   submitted:boolean = false;
   fileEmpty:boolean = true;
+  checkbox: boolean = false;
 
   constructor(
     private fb:FormBuilder,

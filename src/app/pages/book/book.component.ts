@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms'
 import { Subscription } from 'rxjs';
 import { BookingService } from '@app/services';
+import { Staff, Parking, StaffParking } from '@app/models';
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -15,12 +17,10 @@ export class BookComponent implements OnInit {
   bookingSuccess: boolean=false;
   loading:boolean=false;
   error: string;
-
-  // LoginForm: FormGroup;
-  // productForm: FormGroup;
-  // childForm0: FormGroup;
-  // childForm1: FormGroup;
-  // childForm2: FormGroup;
+  staffParking: StaffParking;
+  staffTypes: Staff[];
+  parkingTypes: Parking[];
+  checkbox: boolean = false;
   submitted = false;
   constructor(
     private fb:FormBuilder,
@@ -74,6 +74,26 @@ export class BookComponent implements OnInit {
     this.bookForm.valueChanges.subscribe(value => {
       localStorage.setItem('bookingFormValue', JSON.stringify(this.bookForm.value));
     });
+
+
+    // Load all the staff and parking types
+    this.bookingService.getStaffParking()
+    .subscribe(
+      data => {
+        this.staffParking = data;
+        this.staffTypes = this.staffParking.staffs;
+        this.parkingTypes = this.staffParking.parking_info;
+        console.log("Success staffparking: ",data, this.staffTypes, this.parkingTypes);
+
+      },
+      error => {
+        this.error = error.error.message;
+        console.log("error staff parking: ",error.message,error);
+      });
+
+
+    // this.staffParking = bookingService.getStaffParking();
+    // console.log('staff parking:  ',this.staffParking);
   }
 
   staffs() : FormArray {
