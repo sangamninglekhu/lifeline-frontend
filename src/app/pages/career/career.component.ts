@@ -10,7 +10,7 @@ import { CareerService } from '@app/services';
 export class CareerComponent implements OnInit {
 
   allVacancy: Vacancy[];
-
+  allVacancyLength: number=0;
   constructor(
     private elementRef: ElementRef,
     private vacancyService: CareerService,
@@ -22,6 +22,7 @@ export class CareerComponent implements OnInit {
     (this.vacancyService.getVancancy().subscribe(
       data => {
         this.allVacancy = data;
+        this.allVacancyLength = data.length;
       },
       error => {
         console.log("error: ",error.message,error);
