@@ -150,6 +150,8 @@ export class BookComponent implements OnInit {
       console.log(" Invalid form");
       return;
     }
+    console.log("form values ", this.bookForm.value);
+
 
     // if (this.childForm1.invalid) {
     //   console.log("passed");
