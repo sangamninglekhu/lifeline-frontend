@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 // import { OktaAuthService } from '@okta/okta-angular';
 // import { Product } from './product';
 
-const baseUrl = 'https://admin.lifelinerecruitment.com/api';
+const baseUrl = 'https://admin.fivercast.com/api';
 
 @Injectable({
   providedIn: 'root'

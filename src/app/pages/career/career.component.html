@@ -19,43 +19,134 @@
 
 <!--News One Start-->
 <section class="news-one news-one__page">
-  <div class="container" *ngIf="allVacancyLength==0" >
-    There are no vacancies at the moment.
+  <div class="container" *ngIf="allVacancyLength==0">
+    We are actively hiring! <br/>Please email us your CV to <a href="mailto:info@fivercast.com"
+      class="text-primary">info@fivercast.com</a> and we will get back to you as soon as possible. <br />
+    <!-- <ul class="list-unstyled faq-one__list">
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Full Name (Must be same in your bank account)</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Email</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Contact Number</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Address (Street, Postcode, City) </p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Passport Copy</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>NI Letter Copy</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Right to Work (VISA/BRP) Copy</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Bank Name</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Account Number</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Sort Code</p>
+        </div>
+      </li>
+      <li>
+        <div class="icon">
+          <span class="icon-tick"></span>
+        </div>
+        <div class="text">
+          <p>Do you have a private vehicle? (Yes/No)</p>
+        </div>
+      </li>
+    </ul> -->
   </div>
+
   <div class="container" *ngIf="allVacancyLength>0">
 
-    <div class="row" *ngFor="let hero of allVacancy; let i = index" >
-      <div class="col-xl-12 col-lg-12 col-md-12 wow fadeInUp" data-wow-delay="0ms"
-      data-wow-duration="1500ms" >
-      <!--News One Single-->
-      <div class="news-one__single" (click)="onClick(hero.slug);" >
-        <!-- <div class="news-one__img">
+    <div class="row" *ngFor="let hero of allVacancy; let i = index">
+      <div class="col-xl-12 col-lg-12 col-md-12 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+        <!--News One Single-->
+        <div class="news-one__single" (click)="onClick(hero.slug);">
+          <!-- <div class="news-one__img">
         <img src="assets/images/blog/news-page-1.jpg" alt="">
         <a >
         <span class="news-one__plus"></span>
       </a>
     </div> -->
-    <div class="news-one__content">
-      <ul class="list-unstyled news-one__meta">
-        <li><a href="#"><i class="far fa-user-circle"></i> {{hero.position}}</a></li>
-        <li><span>/</span></li>
-        <li> {{hero.number}} <span *ngIf="hero.number>1">positions</span>
-          <span *ngIf="hero.number==1">position</span>
-        </li>
-      </ul>
-      <h3 class="news-one__title">
-        <a (click)="onClick(hero.slug);">{{hero.position}}</a>
-      </h3>
-      <p class="news-one__text" [innerHTML]="hero.requirements"></p>
-      <a (click)="onClick(hero.slug);" class="news-one__btn">Apply</a>
-      <div class="news-one__date-box">
-        <p>{{hero.created_at| date}}</p>
+          <div class="news-one__content">
+            <ul class="list-unstyled news-one__meta">
+              <li><a href="#"><i class="far fa-user-circle"></i> {{hero.position}}</a></li>
+              <li><span>/</span></li>
+              <li> {{hero.number}} <span *ngIf="hero.number>1">positions</span>
+                <span *ngIf="hero.number==1">position</span>
+              </li>
+            </ul>
+            <h3 class="news-one__title">
+              <a (click)="onClick(hero.slug);">{{hero.position}}</a>
+            </h3>
+            <p class="news-one__text" [innerHTML]="hero.requirements"></p>
+            <a (click)="onClick(hero.slug);" class="news-one__btn">Apply</a>
+            <div class="news-one__date-box">
+              <p>{{hero.created_at| date}}</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms"
+      <!-- <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms"
 data-wow-duration="1500ms">
 <div class="news-one__single">
 <div class="news-one__img">
@@ -195,11 +286,11 @@ turpis gilla sed sit amet.</p>
 </div>
 </div>
 </div> -->
-</div>
-<!-- <div class="news-one__more text-center">
+    </div>
+    <!-- <div class="news-one__more text-center">
 <a href="blog.html" class="thm-btn">Load More</a>
 </div> -->
-<!-- /.news-one__more text-center -->
-</div>
+    <!-- /.news-one__more text-center -->
+  </div>
 </section>
 <!--News One End-->

@@ -6,6 +6,7 @@ import { CareerComponent } from './pages/career/career.component';
 import { AboutComponent } from './pages/about/about.component';
 import { BookComponent } from './pages/book/book.component';
 import { JobapplyComponent } from './pages/jobapply/jobapply.component';
+import { SignupdetailsComponent } from './pages/signupdetails/signupdetails.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'earlySignUp',
+    component: SignupdetailsComponent
   },
 ];
 

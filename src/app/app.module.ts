@@ -14,6 +14,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { JobapplyComponent } from './pages/jobapply/jobapply.component';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { SignupdetailsComponent } from './pages/signupdetails/signupdetails.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     ContactComponent,
     HeaderComponent,
     FooterComponent,
-    JobapplyComponent
+    JobapplyComponent,
+    SignupdetailsComponent
   ],
   imports: [
     BrowserModule,
