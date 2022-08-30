@@ -1,0 +1,41 @@
+.main-slider .swiper-slide-active .thm-btn,
+.main-slider .swiper-slide-active p,
+.main-slider .swiper-slide-active h2,
+.main-slider .swiper-slide-active h3,
+.main-slider .swiper-slide-active p {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+}
+
+@media(max-width: 1920px) and (min-width: 1366px) {
+    .main-slider, .swiper-wrapper, .swiper-slide{
+        overflow: hidden;
+        position: relative;
+        height: 100vh;
+    }
+
+    .main-slider .container {
+        padding-top: 25vh;
+        padding-bottom: 20vh;
+    }
+
+    .main-slider h2 {
+        margin: 0;
+        margin-bottom: 30px;
+        color: var(--thm-base);
+        font-weight: 900;
+        letter-spacing: var(--thm-letter-space-small);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(120px);
+        transition-delay: 1000ms;
+        transition: transform 2000ms ease, opacity 2000ms ease;
+        font-size: 90px;
+        line-height: 80px;
+        text-transform: uppercase;
+        padding-top: 16px;
+    }
+    
+    
+}
