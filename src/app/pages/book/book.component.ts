@@ -28,6 +28,7 @@ export class BookComponent implements OnInit {
   parkingTypes: Parking[];
   checkbox: boolean = false;
   submitted = false;
+  today: string;
   constructor(
     private fb: FormBuilder,
     private elementRef: ElementRef,
@@ -203,6 +204,9 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.today = new Date().toISOString().slice(0, 10);
+    console.log(this.today);
+
     var s = document.createElement("script");
     s.src = "../../assets/js/aivons.js";
     this.elementRef.nativeElement.appendChild(s);
