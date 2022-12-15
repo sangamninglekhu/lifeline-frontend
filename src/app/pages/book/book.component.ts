@@ -28,6 +28,7 @@ export class BookComponent implements OnInit {
   parkingTypes: Parking[];
   checkbox: boolean = false;
   submitted = false;
+  formInvalid = false;
   today: string;
   constructor(
     private fb: FormBuilder,
@@ -165,10 +166,12 @@ export class BookComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.bookForm.invalid) {
+      this.formInvalid = true;
       console.log(" Invalid form");
       return;
     }
     console.log("form values ", this.bookForm.value);
+    this.formInvalid = false;
 
     // if (this.childForm1.invalid) {
     //   console.log("passed");
