@@ -8,6 +8,7 @@
         <li>Your request our responsibility</li>
       </ul>
       <h2>Book Staff</h2>
+
     </div>
   </div>
 </section>
@@ -31,258 +32,264 @@
   </div>
 </div>
 </div> -->
-<div class="col-xl-12 col-lg-12">
-  <div class="message-box__right">
-  <div *ngIf="bookingSuccess" class="text-success">
-    Booking recorded successful!
-    </div>
-    <form *ngIf="!bookingSuccess" class="comment-one__form"
-    [formGroup]="bookForm" (ngSubmit)="onSubmit()">
-
-    <!-- Personal Detail -->
-    PERSONAL DETAIL*
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="comment-form__input-box">
-          <!-- <label for="power">Personal Details</label> -->
-
-          <input type="text" placeholder="Full Name" name="full_name" formControlName="full_name">
-          <div class="comment-form__icon">
-            <i class="far fa-user-circle"></i>
+      <div class="col-xl-12 col-lg-12">
+        <div class="message-box__right">
+          <div *ngIf="bookingSuccess" class="text-success">
+            Booking recorded successful!
           </div>
-        </div>
-        <div *ngIf="submitted && c.full_name.errors" class="mb-2 text-danger">
-          <div *ngIf="c.full_name.errors.required">Full name is required</div>
-        </div>
+          <form *ngIf="!bookingSuccess" class="comment-one__form" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
 
-      </div>
-    </div>
-    <!-- End of Personal Detail -->
-    <br/><br/>
+            <!-- Personal Detail -->
+            PERSONAL DETAIL*
+            <div class="row">
+              <div class="col-xl-6">
+                <div class="comment-form__input-box">
+                  <!-- <label for="power">Personal Details</label> -->
 
+                  <input type="text" placeholder="Full Name" name="full_name" formControlName="full_name">
+                  <div class="comment-form__icon">
+                    <i class="far fa-user-circle"></i>
+                  </div>
+                </div>
+                <div *ngIf="submitted && c.full_name.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.full_name.errors.required">Full name is required</div>
+                </div>
 
-    <!-- Organization Details -->
-    ORGANIZATION DETAIL*
-    <div class="row">
-
-      <div class="col-xl-3">
-
-        <div class="comment-form__input-box">
-          <input type="text" placeholder="Oraganization name" name="company_name" formControlName="company_name">
-          <div class="comment-form__icon">
-            <i class="far fa-building"></i>
-          </div>
-        </div>
-        <div *ngIf="submitted && c.company_name.errors" class="mb-2 text-danger">
-          <div *ngIf="c.company_name.errors.required">Company name is required</div>
-        </div>
-      </div>
-      <div class="col-xl-3">
-
-        <div class="comment-form__input-box">
-          <input type="text" placeholder="Postcode" formControlName="postcode">
-          <div class="comment-form__icon">
-            <i class="far fa-map"></i>
-          </div>
-        </div>
-        <div *ngIf="submitted && c.postcode.errors" class="mb-2 text-danger">
-          <div *ngIf="c.postcode.errors.required">Postcode is required</div>
-          <div *ngIf="c.postcode.errors.pattern">Postcode must be valid (Exclude any space)</div>
-        </div>
-      </div>
-      <div class="col-xl-3">
-
-        <div class="comment-form__input-box">
-          <input type="text" placeholder="Contact" formControlName="contact">
-          <div class="comment-form__icon">
-            <i class="far fa-envelope"></i>
-          </div>
-        </div>
-        <div *ngIf="submitted && c.contact.errors" class="mb-2 text-danger">
-          <div *ngIf="c.contact.errors.required">Contact is required</div>
-        </div>
-      </div>
-      <div class="col-xl-3">
-
-        <div class="comment-form__input-box">
-          <input type="email" placeholder="Email Address" formControlName="email">
-          <div class="comment-form__icon">
-            <i class="far fa-envelope"></i>
-          </div>
-        </div>
-        <div *ngIf="submitted && c.email.errors" class="mb-2 text-danger">
-          <div *ngIf="c.email.errors.required">Email is required</div>
-          <div *ngIf="c.email.errors.pattern">Email must be valid</div>
-        </div>
-      </div>
-    </div>
-    <!-- End of Organization Details -->
-
-    <!-- Booking Details -->
-    <!-- End of Booking Details -->
-
-<br/><br/>
-    <!-- Booking Details -->
-    BOOKING DETAILS*
-    <div formArrayName="staffs">
-
-      <div class="row"  *ngFor="let quantity of staffs().controls; let i=index;" [formGroupName]="i">
-
-        <div class="col-xl-3">
-
-          <div class="comment-form__input-box">
-            <label for="staff_id">Select Staff Type:</label><br>
-
-            <select formControlName="staff_id" name="staff_id">
-              <option value="" hidden disabled selected></option>
-              <option *ngFor="let item of staffTypes" [value]="item.id">
-                {{item.type}}
-              </option>
-
-            <!-- <input type="date" placeholder="Choose Date" name="date"> -->
-            <div class="comment-form__icon">
-              <i class="far fa-chevron-down"></i>
+              </div>
             </div>
-          </select>
+            <!-- End of Personal Detail -->
+            <br /><br />
 
-          </div>
-        </div>
-        <div class="col-xl-3">
 
-          <div class="comment-form__input-box">
-            <label for="date">Date:</label><br>
+            <!-- Organization Details -->
+            COMPANY DETAIL*
+            <div class="row">
 
-            <input type="date" placeholder="Choose Date" formControlName="date" name="date">
+              <div class="col-xl-3">
 
-            <div class="comment-form__icon">
-              <!-- <i class="far fa-map"></i> -->
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Company Name" name="company_name" formControlName="company_name">
+                  <div class="comment-form__icon">
+                    <i class="far fa-building"></i>
+                  </div>
+                </div>
+                <div *ngIf="submitted && c.company_name.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.company_name.errors.required">Company name is required</div>
+                </div>
+              </div>
+              <div class="col-xl-3">
+
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Postcode" formControlName="postcode">
+                  <div class="comment-form__icon">
+                    <i class="far fa-map"></i>
+                  </div>
+                </div>
+                <div *ngIf="submitted && c.postcode.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.postcode.errors.required">Postcode is required</div>
+                  <div *ngIf="c.postcode.errors.pattern">Postcode must be valid (Exclude any space)</div>
+                </div>
+              </div>
+
+              <div class="col-xl-3" data-toggle="tooltip" data-placement="top"
+                title="We may call here for confirmation.">
+
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Contact Number" formControlName="contact">
+
+                  <div class="comment-form__icon">
+                    <i class="fa fa-phone "></i>
+
+                  </div>
+                </div>
+                <div *ngIf="submitted && c.contact.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.contact.errors.required">Contact is required</div>
+                </div>
+              </div>
+              <div class="col-xl-3" data-toggle="tooltip" data-placement="top"
+                title="Confirmation emails will be sent here.">
+
+                <div class="comment-form__input-box">
+                  <input type="email" placeholder="Email Address" formControlName="email">
+                  <div class="comment-form__icon">
+                    <i class="far fa-envelope"></i>
+                  </div>
+                </div>
+                <div *ngIf="submitted && c.email.errors" class="mb-2 text-danger">
+                  <div *ngIf="c.email.errors.required">Email is required</div>
+                  <div *ngIf="c.email.errors.pattern">Email must be valid</div>
+                </div>
+              </div>
             </div>
-          </div>
+            <!-- End of Organization Details -->
 
-        </div>
-        <div class="col-xl-2">
+            <!-- Booking Details -->
+            <!-- End of Booking Details -->
 
-          <div class="comment-form__input-box">
-            <label for="from">Time From:</label><br>
+            <br /><br />
+            <!-- Booking Details -->
+            BOOKING DETAILS*
+            <div formArrayName="staffs">
 
-            <input type="time" placeholder="Time from" formControlName="from" name="from">
-            <!-- <div class="comment-form__icon">
+              <div class="row" *ngFor="let quantity of staffs().controls; let i=index;" [formGroupName]="i">
+
+                <div class="col-xl-3">
+
+                  <div class="comment-form__input-box">
+                    <label for="staff_id">Select Staff Type:</label><br>
+
+                    <select formControlName="staff_id" name="staff_id">
+                      <option value="" hidden disabled selected></option>
+                      <option *ngFor="let item of staffTypes" [value]="item.id">
+                        {{item.type}}
+                      </option>
+
+                      <!-- <input type="date" placeholder="Choose Date" name="date"> -->
+                      <div class="comment-form__icon">
+                        <i class="far fa-chevron-down"></i>
+                      </div>
+                    </select>
+
+                  </div>
+                </div>
+                <div class="col-xl-3">
+
+                  <div class="comment-form__input-box">
+                    <label for="date">Date:</label><br>
+
+                    <input type="date" placeholder="Choose Date" formControlName="date" name="date">
+
+                    <div class="comment-form__icon">
+                      <!-- <i class="far fa-map"></i> -->
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-xl-2">
+
+                  <div class="comment-form__input-box">
+                    <label for="from">Time From:</label><br>
+
+                    <input type="time" placeholder="Time from" formControlName="from" name="from">
+                    <!-- <div class="comment-form__icon">
               <i class="far fa-clock"></i>
             </div> -->
-          </div>
-        </div>
-        <div class="col-xl-2">
+                  </div>
+                </div>
+                <div class="col-xl-2">
 
-          <div class="comment-form__input-box">
-            <label for="to">Time To:</label><br>
+                  <div class="comment-form__input-box">
+                    <label for="to">Time To:</label><br>
 
-            <input type="time" placeholder="Time To" formControlName="to" name="to">
-            <!-- <div class="comment-form__icon">
+                    <input type="time" placeholder="Time To" formControlName="to" name="to">
+                    <!-- <div class="comment-form__icon">
               <i class="far fa-clock"></i>
             </div> -->
-          </div>
-        </div>
-        <div class="col-xl-2">
-          <button (click)="removeQuantity(i)" *ngIf="test(i)" class="thm-btn btn-danger ">Remove</button>
-        </div>
-        <div class="row bb">
-          <span class="text-danger" *ngIf="getValidity(i)">Please fill up all the fields.</span>
-        </div>
+                  </div>
+                </div>
+                <div class="col-xl-2">
+                  <button (click)="removeQuantity(i)" *ngIf="test(i)" class="thm-btn btn-danger ">Remove</button>
+                </div>
+                <div class="row bb">
+                  <span class="text-danger" *ngIf="getValidity(i)">Please fill up all the fields.</span>
+                </div>
 
-      </div>
-    </div>
-    <!-- End of Booking Details -->
+              </div>
+            </div>
+            <!-- End of Booking Details -->
 
-    <!-- Add and Remove button -->
-    <div class="row mb">
-      <div class="col-xl-4">
+            <!-- Add and Remove button -->
+            <div class="row mb">
+              <div class="col-xl-4">
 
-        <button type="button" (click)="addQuantity()" class="thm-btn btn-primary add-btn">Add More</button>
+                <button type="button" (click)="addQuantity()" class="thm-btn btn-primary add-btn">Add More</button>
 
-      </div>
-    </div>
-    <!-- End of Add and Remove button -->
+              </div>
+            </div>
+            <!-- End of Add and Remove button -->
 
-    <br/><br/>
-    <!-- Additional Details -->
-    ADDITIONAL DETAILS
-    <div class="row">
+            <br /><br />
+            <!-- Additional Details -->
+            ADDITIONAL DETAILS
+            <div class="row">
 
-      <div class="col-xl-4">
-        <div class="comment-form__input-box">
-          <textarea formControlName="special_requirement" placeholder="Special Requirements"></textarea>
-          <div class="comment-form__icon contact-expert__icon-comment">
-            <i class="far fa-comment"></i>
-          </div>
-        </div>
-      </div>
+              <div class="col-xl-4">
+                <div class="comment-form__input-box">
+                  <textarea formControlName="special_requirement" placeholder="Special Requirements"></textarea>
+                  <div class="comment-form__icon contact-expert__icon-comment">
+                    <i class="far fa-comment"></i>
+                  </div>
+                </div>
+              </div>
 
-      <div class="col-xl-4">
+              <div class="col-xl-4">
 
-        <div class="comment-form__input-box">
-          <select formControlName="parking_id">
-            <option value="" hidden disabled selected>Select Parking Information*</option>
-            <option *ngFor="let item of parkingTypes" [value]="item.id">
-              {{item.type}}
-            </option>
-          </select>
-          <!-- <input type="date" placeholder="Choose Date" name="date"> -->
-          <div class="comment-form__icon">
-            <i class="far fa-chevron-down"></i>
-          </div>
-          <div *ngIf="submitted && c.parking_id.errors" class="mb-2 text-danger">
-            <div *ngIf="c.parking_id.errors.required">Parking is required</div>
-          </div>
+                <div class="comment-form__input-box">
+                  <select formControlName="parking_id">
+                    <option value="" hidden disabled selected>Select Parking Information*</option>
+                    <option *ngFor="let item of parkingTypes" [value]="item.id">
+                      {{item.type}}
+                    </option>
+                  </select>
+                  <!-- <input type="date" placeholder="Choose Date" name="date"> -->
+                  <div class="comment-form__icon">
+                    <i class="far fa-chevron-down"></i>
+                  </div>
+                  <div *ngIf="submitted && c.parking_id.errors" class="mb-2 text-danger">
+                    <div *ngIf="c.parking_id.errors.required">Parking is required</div>
+                  </div>
 
-        </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="comment-form__input-box">
-          <textarea formControlName="other" placeholder="Any Other Additional Information"></textarea>
-          <div class="comment-form__icon contact-expert__icon-comment">
-            <i class="far fa-comment"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End of Organization Details -->
+                </div>
+              </div>
+              <div class="col-xl-4">
+                <div class="comment-form__input-box">
+                  <textarea formControlName="other" placeholder="Any Other Additional Information"></textarea>
+                  <div class="comment-form__icon contact-expert__icon-comment">
+                    <i class="far fa-comment"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Organization Details -->
 
-    <!-- Additional Information -->
-    <div class="row">
+            <!-- Additional Information -->
+            <div class="row">
 
-      <div class="col-xl-12">
-        <div class="comment-form__input-box" id="tnc">
+              <div class="col-xl-12">
+                <div class="comment-form__input-box" id="tnc">
 
-          <!-- <input id="tnc1"  type="checkbox" id="scales" name="scales">
+                  <!-- <input id="tnc1"  type="checkbox" id="scales" name="scales">
           <label id="tnc2"  for="scales"> &nbsp;&nbsp; By booking the service you agree to the Lifeline Recruitment booking Terms and Condition.</label> -->
-          <!-- <label for="checkid"   style="word-wrap:break-word"> -->
-            <input type="checkbox" id="checkid"  class="mb-1" type="checkbox" value="test" (change)="checkbox = !checkbox"/>&nbsp; By booking the service you agree to the Fivercast booking <a href="" target="blank_"> <b>Terms and Condition</b></a>.
-          <!-- </label> -->
+                  <!-- <label for="checkid"   style="word-wrap:break-word"> -->
+                  <input type="checkbox" id="checkid" class="mb-1" type="checkbox" value="test"
+                    (change)="checkbox = !checkbox" />&nbsp; By booking the service you agree to the Fivercast booking
+                  <a href="/assets/docs/TNC.pdf" target="blank_"> <b>Terms and Condition</b></a>.
+                  <!-- </label> -->
 
+                </div>
+              </div>
+
+            </div>
+            <!-- End of Additional Information -->
+            <!-- Additional Information -->
+            <div class="row">
+
+              <div class="col-xl-2">
+                <button [disabled]="!checkbox" type="submit" class="thm-btn comment-form__btn mb-3">Submit</button>
+              </div>
+              <div class="col-xl-4">
+                <span (click)="clear()" class="thm-btn comment-form__btn">Reset Form</span>
+              </div>
+
+            </div>
+            <!-- End of Additional Information -->
+
+
+          </form>
         </div>
       </div>
-
     </div>
-    <!-- End of Additional Information -->
-    <!-- Additional Information -->
-    <div class="row">
-
-      <div class="col-xl-2">
-        <button [disabled]="!checkbox" type="submit" class="thm-btn comment-form__btn mb-3">Submit</button>
-      </div>
-      <div class="col-xl-4">
-        <span (click)="clear()" class="thm-btn comment-form__btn">Reset Form</span>
-      </div>
-
-    </div>
-    <!-- End of Additional Information -->
-
-
-  </form>
-</div>
-</div>
-</div>
-</div>
+  </div>
 </section>
 <!--Message Box End-->
 <!-- {{this.bookForm.value | json}} -->
